@@ -45,6 +45,19 @@
 			"UniqueID": "bobkalonger.gigacoopnbarn",
 			"MinimumVersion": "1.1.5",
 			"IsRequired": false
+		},
+		{
+			"UniqueID": "KediDili.VanillaPlusProfessions",
+			"IsRequired": false
+		},
+		{
+			"UniqueID": "Esca.EMP",
+			"MinimumVersion": "1.7.2",
+			"IsRequired": false
+		},
+		{
+			"UniqueID": "Spiderbuttons.CMCT",
+			"IsRequired": false
 		}
 	]
 }

@@ -287,6 +287,23 @@
                     "CustomFields": null
                 }
             }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "When": {
+                "HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+                "Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+                "Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+            },
+            "Fields": {
+                "{{ModId}}_SuperDenseBarn": {
+                    "MaxOccupants": 64
+                },
+                "{{ModId}}_SuperDenseCoop": {
+                    "MaxOccupants": 64
+                }
+            }
         }
     ]
 }

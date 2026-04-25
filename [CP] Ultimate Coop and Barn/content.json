@@ -63,6 +63,94 @@
 			"FromFile": "assets/cozy_SuperDenseCoop.tmx"
 		},
 		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Clean_UltimateBarn",
+			"FromFile": "assets/clean_UltimateBarnVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Cozy_UltimateBarn",
+			"FromFile": "assets/cozy_UltimateBarnVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Clean_UltimateCoop",
+			"FromFile": "assets/clean_UltimateCoopVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Cozy_UltimateCoop",
+			"FromFile": "assets/cozy_UltimateCoopVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Clean_SuperDenseBarn",
+			"FromFile": "assets/clean_SuperDenseBarnVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Cozy_SuperDenseBarn",
+			"FromFile": "assets/cozy_SuperDenseBarnVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Clean_SuperDenseCoop",
+			"FromFile": "assets/clean_SuperDenseCoopVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
+			"Action": "EditMap",
+			"Target": "Maps/ultimate_Cozy_SuperDenseCoop",
+			"FromFile": "assets/cozy_SuperDenseCoopVPP.tmx",
+			"When": {
+				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
+				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
+				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+			},
+			"Update": "OnLocationChange"
+		},
+		{
 			"Action": "EditData",
 			"Target": "Data/PaintData",
 			"Entries": {

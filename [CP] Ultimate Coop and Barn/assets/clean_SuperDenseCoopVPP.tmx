@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="54" height="46" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="348">
+ <properties>
+  <property name="AmbientLight" value="110 110 110"/>
+  <property name="AutoFeed" value="T"/>
+  <property name="CanCaskHere" value="T"/>
+  <property name="DayTiles" value="Buildings 3 3 24 Buildings 4 3 24 Buildings 8 3 24 Buildings 9 3 24 Buildings 13 3 24 Buildings 14 3 24 Buildings 18 3 24 Buildings 19 3 24 Buildings 23 3 24 Buildings 24 3 24 Buildings 28 3 24 Buildings 29 3 24 Buildings 33 3 24 Buildings 34 3 24 Buildings 38 3 24 Buildings 39 3 24 Buildings 43 3 24 Buildings 44 3 24 Buildings 48 33 24 Buildings 49 33 24 Back 3 7 25 Back 4 7 25 Back 8 7 25 Back 9 7 25 Back 13 7 25 Back 14 7 25 Back 18 7 25 Back 19 7 25 Back 23 7 25 Back 24 7 25 Back 28 7 25 Back 29 7 25 Back 33 7 25 Back 34 7 25 Back 38 7 25 Back 39 7 25 Back 43 7 25 Back 44 7 25 Back 48 37 25 Back 49 37 25 Front 6 2 2736 Front 6 3 2768 Front 11 2 2736 Front 11 3 2768 Front 16 2 2736 Front 16 3 2768 Front 21 2 2736 Front 21 3 2768 Front 26 2 2736 Front 26 3 2768 Front 31 2 2736 Front 31 3 2768 Front 36 2 2736 Front 36 3 2768 Front 41 2 2736 Front 41 3 2768 Front 46 32 2736 Front 46 33 2768 Front 51 32 2736 Front 51 33 2768 AlwaysFront 4 10 2748 AlwaysFront 8 10 2748 AlwaysFront 12 10 2748 AlwaysFront 16 10 2748 AlwaysFront 20 10 2748 AlwaysFront 4 18 2748 AlwaysFront 8 18 2748 AlwaysFront 12 18 2748 AlwaysFront 16 18 2748 AlwaysFront 20 18 2748 AlwaysFront 4 26 2748 AlwaysFront 8 26 2748 AlwaysFront 12 26 2748 AlwaysFront 16 26 2748 AlwaysFront 20 26 2748 AlwaysFront 4 34 2748 AlwaysFront 8 34 2748 AlwaysFront 12 34 2748 AlwaysFront 16 34 2748 AlwaysFront 20 34 2748 AlwaysFront1 4 11 2780 AlwaysFront1 8 11 2780 AlwaysFront1 12 11 2780 AlwaysFront1 16 11 2780 AlwaysFront1 20 11 2780 AlwaysFront1 4 19 2780 AlwaysFront1 8 19 2780 AlwaysFront1 12 19 2780 AlwaysFront1 16 19 2780 AlwaysFront1 20 19 2780 AlwaysFront1 4 27 2780 AlwaysFront1 8 27 2780 AlwaysFront1 12 27 2780 AlwaysFront1 16 27 2780 AlwaysFront1 20 27 2780 AlwaysFront1 4 35 2780 AlwaysFront1 8 35 2780 AlwaysFront1 12 35 2780 AlwaysFront1 16 35 2780 AlwaysFront1 20 35 2780"/>
+  <property name="Feed" value="48 36"/>
+  <property name="Light" value="3 7 4 4 7 4 8 7 4 9 7 4 13 7 4 14 7 4 18 7 4 19 7 4 23 7 4 24 7 4 28 7 4 29 7 4 33 7 4 34 7 4 38 7 4 39 7 4 43 7 4 44 7 4 4 11 4 8 11 4 12 11 4 16 11 4 20 11 4 28 11 4 32 11 4 36 11 4 40 11 4 44 11 4 4 15 4 8 15 4 12 15 4 16 15 4 20 15 4 24 15 4 28 15 4 32 15 4 36 15 4 40 15 4 44 15 4 4 19 4 8 19 4 12 19 4 16 19 4 20 19 4 28 19 4 32 19 4 36 19 4 40 19 4 44 19 4 4 23 4 8 23 4 12 23 4 16 23 4 20 23 4 24 23 4 28 23 4 32 23 4 36 23 4 40 23 4 44 23 4 4 27 4 8 27 4 12 27 4 16 27 4 20 27 4 28 27 4 32 27 4 36 27 4 40 27 4 44 27 4 4 31 4 8 31 4 12 31 4 16 31 4 20 31 4 24 31 4 28 31 4 32 31 4 36 31 4 40 31 4 44 31 4 4 35 4 8 35 4 12 35 4 16 35 4 20 35 4 28 35 4 32 35 4 36 35 4 40 35 4 44 35 4 48 37 4 49 37 4 4 39 4 8 39 4 12 39 4 16 39 4 20 39 4 24 39 4 28 39 4 32 39 4 36 39 4 40 39 4 44 39 4"/>
+  <property name="NightTiles" value="Buildings 3 3 26 Buildings 4 3 26 Buildings 8 3 26 Buildings 9 3 26 Buildings 13 3 26 Buildings 14 3 26 Buildings 18 3 26 Buildings 19 3 26 Buildings 23 3 26 Buildings 24 3 26 Buildings 28 3 26 Buildings 29 3 26 Buildings 33 3 26 Buildings 34 3 26 Buildings 38 3 26 Buildings 39 3 26 Buildings 43 3 26 Buildings 44 3 26 Buildings 48 33 26 Buildings 49 33 26 Back 3 7 54 Back 4 7 12 Back 8 7 12 Back 9 7 12 Back 13 7 12 Back 14 7 12 Back 18 7 12 Back 19 7 12 Back 23 7 12 Back 24 7 54 Back 28 7 12 Back 29 7 12 Back 33 7 12 Back 34 7 12 Back 38 7 54 Back 39 7 12 Back 43 7 12 Back 44 7 12 Back 48 37 12 Back 49 37 12 Front 6 2 2737 Front 6 3 2769 Front 11 2 2737 Front 11 3 2769 Front 16 2 2737 Front 16 3 2769 Front 21 2 2737 Front 21 3 2769 Front 26 2 2737 Front 26 3 2769 Front 31 2 2737 Front 31 3 2769 Front 36 2 2737 Front 36 3 2769 Front 41 2 2737 Front 41 3 2769 Front 46 32 2737 Front 46 33 2769 Front 51 32 2737 Front 51 33 2769 AlwaysFront 4 10 2749 AlwaysFront 8 10 2749 AlwaysFront 12 10 2749 AlwaysFront 16 10 2749 AlwaysFront 20 10 2749 AlwaysFront 4 18 2749 AlwaysFront 8 18 2749 AlwaysFront 12 18 2749 AlwaysFront 16 18 2749 AlwaysFront 20 18 2749 AlwaysFront 4 26 2749 AlwaysFront 8 26 2749 AlwaysFront 12 26 2749 AlwaysFront 16 26 2749 AlwaysFront 20 26 2749 AlwaysFront 4 34 2749 AlwaysFront 8 34 2749 AlwaysFront 12 34 2749 AlwaysFront 16 34 2749 AlwaysFront 20 34 2749 AlwaysFront1 4 11 2781 AlwaysFront1 8 11 2781 AlwaysFront1 12 11 2781 AlwaysFront1 16 11 2781 AlwaysFront1 20 11 2781 AlwaysFront1 4 19 2781 AlwaysFront1 8 19 2781 AlwaysFront1 12 19 2781 AlwaysFront1 16 19 2781 AlwaysFront1 20 19 2781 AlwaysFront1 4 27 2781 AlwaysFront1 8 27 2781 AlwaysFront1 12 27 2781 AlwaysFront1 16 27 2781 AlwaysFront1 20 27 2781 AlwaysFront1 4 35 2781 AlwaysFront1 8 35 2781 AlwaysFront1 12 35 2781 AlwaysFront1 16 35 2781 AlwaysFront1 20 35 2781"/>
+  <property name="ProduceArea" value="25 7 20 36"/>
+  <property name="Warp" value="48 41 Farm 1 1 47 9 Farm 1 1"/>
+ </properties>
+ <tileset firstgid="1" name="barn" tilewidth="16" tileheight="16" tilecount="84" columns="4">
+  <image source="coopTiles.png" width="64" height="336"/>
+  <tile id="12">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Passable" type="int" value="0"/>
+    <property name="Trough" value="T"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="85" name="furniture" tilewidth="16" tileheight="16" tilecount="2976" columns="32">
+  <image source="../TileSheets/furniture.png" width="512" height="1488"/>
+ </tileset>
+ <tileset firstgid="3061" name="furniture_3" tilewidth="16" tileheight="16" tilecount="351" columns="13">
+  <image source="../TileSheets/furniture_3.png" width="208" height="432"/>
+ </tileset>
+ <tileset firstgid="3412" name="p" tilewidth="16" tileheight="16" tilecount="64" columns="4">
+  <image source="paths" width="64" height="256"/>
+ </tileset>
+ <tileset firstgid="3476" name="townInterior" tilewidth="16" tileheight="16" tilecount="2176" columns="32">
+  <image source="townInterior.png" width="512" height="1088"/>
+ </tileset>
+ <tileset firstgid="5652" name="townInterior_2" tilewidth="16" tileheight="16" tilecount="1312" columns="32">
+  <image source="townInterior_2.png" width="512" height="656"/>
+ </tileset>
+ <tileset firstgid="6964" name="z_broom" tilewidth="16" tileheight="16" tilecount="3" columns="1">
+  <image source="z_broom.png" width="16" height="48"/>
+ </tileset>
+ <tileset firstgid="6967" name="barn" tilewidth="16" tileheight="16" tilecount="84" columns="4">
+  <image source="coopTiles" width="64" height="336"/>
+  <tile id="12">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Passable" type="int" value="0"/>
+    <property name="Trough" value="T"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Type" value="Wood"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="Back" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJztmVEKg0AMRL2AF+hnD1Hp/S/WfrgQgjpJNtsdagYCraMyj12SVpelVCqVSlKvvd7isy4mz6r1W4+9VlHt2HZwrH3fwLVnxzbjeUdZrJK5dTF6VrHlRl4PFytTD9fs3MiLcDHkRp6XiyU38qyS8+LZWXoGjeC1St4nY3aOXkOrWPZX9fkY1+zcyItwMeRGnpeLJTfyPFxMubP6vOzXWfOr3XMEr1Xy2oz/fdXnY16Ua3Zu5EW4GHIjz8vFkht5Hi6m3CN+zzPkRp5VskdnzC85A0bwWiWvz3ieOXoNI1yse6+XiyE38rxcLLmR5+Fiyn3XPn/Wr7TYcls9/b5HK3t+6Wduv+LVkudlvIubtYZXXAz7C3ky95XYciPPw8WU+659vvRf+gD0CZaX
+  </data>
+ </layer>
+ <layer id="3" name="Buildings" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJztmc0KgkAUhU9FhbVy4UIycls7q1Ur36an7l262gxYODiJoGe8HxxmRvzhYy7cAQsARaBZSJZkWXl4rSUJUDJl6+kVy72pjKmZ20z12h9eVPH1Ssji68WGenFReT0P6sVCyHU4Zy/bF46Sq+TWM3fJCd+9Zkwvy3mAb17M+NoBjwHe18bc65AN9eJCvbjQ/vVB+9e4qBcX6sXF3L20f3Wj/as/G3T/Z2H0yoGyLc19ZPTKxCFr/GOx6wC86sQmds3ulTvC7uXi14utf7lw7RdL/3IRah3uwe1V7Utk5k0X9vOGrTcgrHOUz/kwcj49XVy1p+HMG0f2kls=
+  </data>
+ </layer>
+ <layer id="12" name="Buildings1" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt2cEJwCAMBdCcpUM5ogt1t9IBepGIVd+DnEICOf1DIoDRSkRdqXpubFdfb+YsAOfKzIh3113y9gHAF/kFwIrkF7CzzD/Ln534b5FfADDXAzCwGrU=
+  </data>
+ </layer>
+ <layer id="13" name="Buildings2" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJztzwERABAQAMEPoIEaCCi50YExfnYT3EUAAAAAAAAA3NPq64LzZonoCb+2kfQLAPjDAisFAX8=
+  </data>
+ </layer>
+ <layer id="5" name="Front" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt2T0KgDAMhuEMClInB4/gPbyAP/c/jQkoODhJJWl9H/hoyVDo9A0RQQ3aPvbsrenhrUgzAADMKDLnjvefzPBhAAD+6C/6CwBKRH/RX0DtbMey6LlqNs0uefcuXv6+d6G/6C/g0mma2z2dASJKhQV1OQDNXSeb
+  </data>
+ </layer>
+ <layer id="14" name="Front1" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt1bENADAIwDBm/l/7K+IEliIk+4JsiQAAgD9ebhcAwJx/AXCRfwFwkX8BAK0AqRkCnQ==
+  </data>
+ </layer>
+ <layer id="9" name="AlwaysFront" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKgDAQRNEtRCTapPAg3sD7n8oICViHXQbW/2CKVJmtxgwAAHxtLYu6RIC15VCX6Oru9z7N7jdu5SaU9r93ak+2u0aUdwFZsV/x2C/2S3kXkBX7FY/9Yr+UdwFZsV/x2C/2S3kXgHlFXSDIpS4A/NADVrY69A==
+  </data>
+ </layer>
+ <layer id="11" name="AlwaysFront1" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEOgEAIRUFq9TJ7Q+PJvQLFEoXMJBR0v3sRAMDfHAVHvXXu/ad6rri/3gDU0K+e9CtHv2Au/epJv3L0C+bSr570K0e/AIAXl8kMMQ==
+  </data>
+ </layer>
+ <layer id="7" name="Paths" width="54" height="46">
+  <data encoding="base64" compression="zlib">
+   eJzt2bENwCAMBEAWyIbsPwdF2nRgHMOdRGEKKr++oDUAbtGf91S6g0q+dnpm3v0+/Nnq/Y+eoRL9BXGy+0i+OJn+gjjZfSRfnEx/Een2P5bsPpIvgLUG8EAqqQ==
+  </data>
+ </layer>
+ <objectgroup id="2" name="Back" visible="0">
+  <object id="59" name="TileData" x="384" y="224" width="16" height="16">
+   <properties>
+    <property name="WaterSource" value="T"/>
+   </properties>
+  </object>
+  <object id="61" name="TileData" x="384" y="352" width="16" height="16">
+   <properties>
+    <property name="WaterSource" value="T"/>
+   </properties>
+  </object>
+  <object id="63" name="TileData" x="384" y="480" width="16" height="16">
+   <properties>
+    <property name="WaterSource" value="T"/>
+   </properties>
+  </object>
+  <object id="65" name="TileData" x="384" y="608" width="16" height="16">
+   <properties>
+    <property name="WaterSource" value="T"/>
+   </properties>
+  </object>
+  <object id="66" name="TileData" x="720" y="128" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="67" name="TileData" x="720" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="68" name="TileData" x="720" y="160" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="69" name="TileData" x="736" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="70" name="TileData" x="736" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="71" name="TileData" x="736" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="72" name="TileData" x="736" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="73" name="TileData" x="736" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="74" name="TileData" x="752" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="75" name="TileData" x="752" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="76" name="TileData" x="752" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="77" name="TileData" x="752" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="78" name="TileData" x="752" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="79" name="TileData" x="768" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="80" name="TileData" x="768" y="640" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="81" name="TileData" x="784" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="82" name="TileData" x="768" y="656" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="83" name="TileData" x="800" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="84" name="TileData" x="816" y="624" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="85" name="TileData" x="816" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="86" name="TileData" x="800" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="87" name="TileData" x="784" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="88" name="TileData" x="768" y="608" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="89" name="TileData" x="768" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="90" name="TileData" x="784" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="91" name="TileData" x="800" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="92" name="TileData" x="816" y="592" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="93" name="TileData" x="816" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="94" name="TileData" x="800" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="95" name="TileData" x="784" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="96" name="TileData" x="768" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="97" name="TileData" x="720" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="98" name="TileData" x="704" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="99" name="TileData" x="704" y="160" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="100" name="TileData" x="704" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="101" name="TileData" x="704" y="128" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="102" name="TileData" x="704" y="112" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="103" name="TileData" x="720" y="112" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="148" name="TileData" x="112" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="149" name="TileData" x="112" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="150" name="TileData" x="128" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="151" name="TileData" x="128" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="152" name="TileData" x="144" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="153" name="TileData" x="144" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="154" name="TileData" x="160" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="155" name="TileData" x="160" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="156" name="TileData" x="176" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="157" name="TileData" x="176" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="158" name="TileData" x="192" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="159" name="TileData" x="192" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="160" name="TileData" x="224" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="161" name="TileData" x="224" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="162" name="TileData" x="240" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="163" name="TileData" x="240" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="164" name="TileData" x="256" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="165" name="TileData" x="256" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="166" name="TileData" x="272" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="167" name="TileData" x="272" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="168" name="TileData" x="288" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="169" name="TileData" x="288" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="170" name="TileData" x="304" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="171" name="TileData" x="304" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="172" name="TileData" x="320" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="173" name="TileData" x="320" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="174" name="TileData" x="208" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="175" name="TileData" x="208" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="176" name="TileData" x="336" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="177" name="TileData" x="336" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="178" name="TileData" x="352" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="179" name="TileData" x="352" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="180" name="TileData" x="368" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="181" name="TileData" x="384" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="182" name="TileData" x="384" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="183" name="TileData" x="368" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="184" name="TileData" x="368" y="160" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="185" name="TileData" x="384" y="160" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="186" name="TileData" x="384" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="187" name="TileData" x="368" y="144" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="188" name="TileData" x="112" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="189" name="TileData" x="112" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="190" name="TileData" x="128" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="191" name="TileData" x="128" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="192" name="TileData" x="144" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="193" name="TileData" x="144" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="194" name="TileData" x="160" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="195" name="TileData" x="160" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="196" name="TileData" x="176" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="197" name="TileData" x="176" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="198" name="TileData" x="192" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="199" name="TileData" x="192" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="200" name="TileData" x="224" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="201" name="TileData" x="224" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="202" name="TileData" x="240" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="203" name="TileData" x="240" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="204" name="TileData" x="256" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="205" name="TileData" x="256" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="206" name="TileData" x="272" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="207" name="TileData" x="272" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="208" name="TileData" x="288" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="209" name="TileData" x="288" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="210" name="TileData" x="304" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="211" name="TileData" x="304" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="212" name="TileData" x="320" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="213" name="TileData" x="320" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="214" name="TileData" x="208" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="215" name="TileData" x="208" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="216" name="TileData" x="336" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="217" name="TileData" x="336" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="218" name="TileData" x="352" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="219" name="TileData" x="352" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="220" name="TileData" x="368" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="221" name="TileData" x="384" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="222" name="TileData" x="384" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="223" name="TileData" x="368" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="224" name="TileData" x="368" y="288" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="225" name="TileData" x="384" y="288" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="226" name="TileData" x="384" y="272" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="227" name="TileData" x="368" y="272" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="228" name="TileData" x="112" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="229" name="TileData" x="112" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="230" name="TileData" x="128" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="231" name="TileData" x="128" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="232" name="TileData" x="144" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="233" name="TileData" x="144" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="234" name="TileData" x="160" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="235" name="TileData" x="160" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="236" name="TileData" x="176" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="237" name="TileData" x="176" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="238" name="TileData" x="192" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="239" name="TileData" x="192" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="240" name="TileData" x="224" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="241" name="TileData" x="224" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="242" name="TileData" x="240" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="243" name="TileData" x="240" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="244" name="TileData" x="256" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="245" name="TileData" x="256" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="246" name="TileData" x="272" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="247" name="TileData" x="272" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="248" name="TileData" x="288" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="249" name="TileData" x="288" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="250" name="TileData" x="304" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="251" name="TileData" x="304" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="252" name="TileData" x="320" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="253" name="TileData" x="320" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="254" name="TileData" x="208" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="255" name="TileData" x="208" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="256" name="TileData" x="336" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="257" name="TileData" x="336" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="258" name="TileData" x="352" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="259" name="TileData" x="352" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="260" name="TileData" x="368" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="261" name="TileData" x="384" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="262" name="TileData" x="384" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="263" name="TileData" x="368" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="264" name="TileData" x="368" y="416" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="265" name="TileData" x="384" y="416" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="266" name="TileData" x="384" y="400" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="267" name="TileData" x="368" y="400" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="268" name="TileData" x="112" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="269" name="TileData" x="112" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="270" name="TileData" x="128" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="271" name="TileData" x="128" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="272" name="TileData" x="144" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="273" name="TileData" x="144" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="274" name="TileData" x="160" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="275" name="TileData" x="160" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="276" name="TileData" x="176" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="277" name="TileData" x="176" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="278" name="TileData" x="192" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="279" name="TileData" x="192" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="280" name="TileData" x="224" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="281" name="TileData" x="224" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="282" name="TileData" x="240" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="283" name="TileData" x="240" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="284" name="TileData" x="256" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="285" name="TileData" x="256" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="286" name="TileData" x="272" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="287" name="TileData" x="272" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="288" name="TileData" x="288" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="289" name="TileData" x="288" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="290" name="TileData" x="304" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="291" name="TileData" x="304" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="292" name="TileData" x="320" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="293" name="TileData" x="320" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="294" name="TileData" x="208" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="295" name="TileData" x="208" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="296" name="TileData" x="336" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="297" name="TileData" x="336" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="298" name="TileData" x="352" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="299" name="TileData" x="352" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="300" name="TileData" x="368" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="301" name="TileData" x="384" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="302" name="TileData" x="384" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="303" name="TileData" x="368" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="304" name="TileData" x="368" y="544" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="305" name="TileData" x="384" y="544" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="306" name="TileData" x="384" y="528" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="307" name="TileData" x="368" y="528" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="308" name="TileData" x="32" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="309" name="TileData" x="32" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="310" name="TileData" x="48" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="311" name="TileData" x="48" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="312" name="TileData" x="64" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="313" name="TileData" x="64" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="314" name="TileData" x="80" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="315" name="TileData" x="80" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="316" name="TileData" x="96" y="176" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="317" name="TileData" x="96" y="192" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="318" name="TileData" x="32" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="319" name="TileData" x="32" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="320" name="TileData" x="48" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="321" name="TileData" x="48" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="322" name="TileData" x="64" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="323" name="TileData" x="64" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="324" name="TileData" x="80" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="325" name="TileData" x="80" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="326" name="TileData" x="96" y="304" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="327" name="TileData" x="96" y="320" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="328" name="TileData" x="32" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="329" name="TileData" x="32" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="330" name="TileData" x="48" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="331" name="TileData" x="48" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="332" name="TileData" x="64" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="333" name="TileData" x="64" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="334" name="TileData" x="80" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="335" name="TileData" x="80" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="336" name="TileData" x="96" y="432" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="337" name="TileData" x="96" y="448" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="338" name="TileData" x="32" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="339" name="TileData" x="32" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="340" name="TileData" x="48" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="341" name="TileData" x="48" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="342" name="TileData" x="64" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="343" name="TileData" x="64" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="344" name="TileData" x="80" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="345" name="TileData" x="80" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="346" name="TileData" x="96" y="560" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+  <object id="347" name="TileData" x="96" y="576" width="16" height="16">
+   <properties>
+    <property name="NPCBarrier" value="T"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Buildings"/>
+ <objectgroup id="6" name="Front"/>
+ <objectgroup id="8" name="Paths"/>
+</map>

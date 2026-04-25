@@ -155,6 +155,20 @@ namespace UltimateCoopAndBarn
         {
             RemoveCustomlights(e.OldLocation);
 
+            if (e.NewLocation is AnimalHouse)
+            {
+                foreach (var building in Game1.getFarm().buildings)
+                {
+                    if (building.GetIndoors()== e.NewLocation &&
+                        building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
+                    {
+                        e.NewLocation.reloadMap();
+                        building.updateInteriorWarps(e.NewLocation);
+                        break;
+                    }
+                }
+            }
+
             foreach (var b in e.NewLocation.buildings)
             {
                 if (b.buildingType.Value == UltimateBarn)

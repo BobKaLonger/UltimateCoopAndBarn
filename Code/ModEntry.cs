@@ -572,10 +572,6 @@ namespace UltimateCoopAndBarn
                 if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
-                GameLocation interior = __instance.GetIndoors();
-                if (interior == null)
-                    return;
-
                 string upgradeKey = $"{modInstance.ModManifest.UniqueID}/buildingKey";
                 string currentLevel = __instance.buildingType.Value;
 
@@ -583,14 +579,25 @@ namespace UltimateCoopAndBarn
                 if (lastMovedLevel == currentLevel)
                     return;
 
-                if (__instance.buildingType.Value is UltimateBarn or SuperDenseBarn)
-                    BarnItemMoves(interior);
-                else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
-                    CoopItemMoves(interior);
+                modInstance.Helper.Events.GameLoop.UpdateTicked += DoItemMoves;
 
-                __instance.modData[upgradeKey] = currentLevel;
+                void DoItemMoves(object sender, UpdateTickedEventArgs e)
+                {
+                    modInstance.Helper.Events.GameLoop.UpdateTicked -= DoItemMoves;
+
+                    GameLocation interior = __instance.GetIndoors();
+                    if (interior == null || interior.map == null)
+                        return;
+
+                    if (__instance.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                        BarnItemMoves(interior);
+                    else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                        CoopItemMoves(interior);
+
+                    __instance.modData[upgradeKey] = currentLevel;
+                }
             }
-        }  
+        }
 
         [HarmonyPatch(typeof(Building), nameof(Building.GetData))]
         public static class UltimateSignPatch
@@ -606,6 +613,18 @@ namespace UltimateCoopAndBarn
                 if (__instance.upgradeName.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
+                if (__instance.upgradeName.Value == UltimatePremiumBarn)
+                {
+                    __result.UpgradeSignTile = new Vector2(2.5f, 4f);
+                    __result.UpgradeSignHeight = 60f;
+                }
+
+                if (__instance.upgradeName.Value == UltimatePremiumCoop)
+                {
+                    __result.UpgradeSignTile = new Vector2(4.5f, 3f);
+                    __result.UpgradeSignHeight = 28f;
+                }
+                
                 if (__instance.upgradeName.Value == UltimateBarn)
                 {
                     __result.UpgradeSignTile = new Vector2(3.5f, 4f);

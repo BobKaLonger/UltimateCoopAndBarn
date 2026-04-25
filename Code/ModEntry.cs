@@ -22,7 +22,7 @@ namespace UltimateCoopAndBarn
     {
         public static ModEntry modInstance;
         public static IContentPack cpPack;
-        internal const string UltimateCP = "bobkalonger.ultimatecoopnbarnCP_";
+        internal const string UltimateCP = "bobkalonger.UltimateCoopAndBarnCP_";
         internal const string SVExpandCP = "FlashShifter.StardewValleyExpandedCP_";
         internal const string UltimateBarn = $"{UltimateCP}UltimateBarn";
         internal const string UltimateCoop = $"{UltimateCP}UltimateCoop";
@@ -200,7 +200,7 @@ namespace UltimateCoopAndBarn
         {
             foreach (Building building in Game1.getFarm().buildings)
             {
-                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
+                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop or UltimatePremiumBarn or UltimatePremiumCoop))
                     continue;
 
                 var interior = building.GetIndoors();
@@ -215,9 +215,9 @@ namespace UltimateCoopAndBarn
                 building.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
                 if (lastMovedLevel == currentLevel) continue;
 
-                if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                if (building.buildingType.Value is UltimateBarn or SuperDenseBarn or UltimatePremiumBarn)
                     BarnItemMoves(interior);
-                else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop or UltimatePremiumCoop)
                     CoopItemMoves(interior);
 
                 building.modData[upgradeKey] = currentLevel;
@@ -569,8 +569,9 @@ namespace UltimateCoopAndBarn
         {
             public static void Postfix(Building __instance)
             {
-                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
+                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop or UltimatePremiumBarn or UltimatePremiumCoop))
                     return;
+                
 
                 string upgradeKey = $"{modInstance.ModManifest.UniqueID}/buildingKey";
                 string currentLevel = __instance.buildingType.Value;
@@ -583,6 +584,7 @@ namespace UltimateCoopAndBarn
 
                 void DoItemMoves(object sender, UpdateTickedEventArgs e)
                 {
+                    if (!e.IsMultipleOf(3)) return;
                     modInstance.Helper.Events.GameLoop.UpdateTicked -= DoItemMoves;
 
                     GameLocation interior = __instance.GetIndoors();
@@ -606,47 +608,28 @@ namespace UltimateCoopAndBarn
             {
                 if (__result == null)
                     return;
-
-                if (modInstance.Helper.ModRegistry.IsLoaded("bobkalonger.BFS_util"))
-                    return;
                 
                 if (__instance.upgradeName.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
-                if (__instance.upgradeName.Value == UltimatePremiumBarn)
+                switch (__instance.upgradeName.Value)
                 {
-                    __result.UpgradeSignTile = new Vector2(2.5f, 4f);
-                    __result.UpgradeSignHeight = 60f;
-                }
-
-                if (__instance.upgradeName.Value == UltimatePremiumCoop)
-                {
-                    __result.UpgradeSignTile = new Vector2(4.5f, 3f);
-                    __result.UpgradeSignHeight = 28f;
-                }
-                
-                if (__instance.upgradeName.Value == UltimateBarn)
-                {
-                    __result.UpgradeSignTile = new Vector2(3.5f, 4f);
-                    __result.UpgradeSignHeight = 60f;
-                }
-
-                if (__instance.upgradeName.Value == SuperDenseBarn)
-                {
-                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
-                    __result.UpgradeSignHeight = 50f;
-                }
-                
-                if (__instance.upgradeName.Value == UltimateCoop)
-                {
-                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
-                    __result.UpgradeSignHeight = 28f;
-                }
-
-                if (__instance.upgradeName.Value == SuperDenseCoop)
-                {
-                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
-                    __result.UpgradeSignHeight = 52f;
+                    case UltimateBarn:
+                        __result.UpgradeSignTile = new Vector2(3.5f, 4f);
+                        __result.UpgradeSignHeight = 60f;
+                        break;
+                    case UltimateCoop:
+                        __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                        __result.UpgradeSignHeight = 28f;
+                        break;
+                    case SuperDenseBarn:
+                        __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                        __result.UpgradeSignHeight = 50f;
+                        break;
+                    case SuperDenseCoop:
+                        __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                        __result.UpgradeSignHeight = 52f;
+                        break;
                 }
             }
         }
@@ -720,9 +703,9 @@ namespace UltimateCoopAndBarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
+                            if (interior.warps.Count > 1)
+                                Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
                         }
-
                         __result = true;
                         return;
                     }
@@ -750,9 +733,9 @@ namespace UltimateCoopAndBarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
+                            if (interior.warps.Count > 1)
+                                Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
                         }
-
                         __result = true;
                         return;
                     }
@@ -767,7 +750,7 @@ namespace UltimateCoopAndBarn
             {
                 if (__instance.buildingType.Value != UltimateBarn)
                     return;
-                if (interior == null || interior.warps.Count == 0)
+                if (interior == null || interior.warps.Count < 2)
                     return;
 
                 var w = interior.warps[1];
@@ -782,7 +765,7 @@ namespace UltimateCoopAndBarn
             {
                 if (__instance.buildingType.Value != UltimateCoop)
                     return;
-                if (interior == null || interior.warps.Count == 0)
+                if (interior == null || interior.warps.Count <2)
                     return;
 
                 var w = interior.warps[1];

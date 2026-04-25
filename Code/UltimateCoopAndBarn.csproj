@@ -7,13 +7,27 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <EnableHarmony>true</EnableHarmony>
 	  <LangVersion>latest</LangVersion>
+    <EnableModDeploy>false</EnableModDeploy>
   </PropertyGroup>
+  <Target Name="StageForTesting" AfterTargets="Build">
+    <PropertyGroup>
+      <StagingPath>/home/bobkalonger/StardewModding/Test Builds/$(AssemblyName)</StagingPath>
+    </PropertyGroup>
+    <MakeDir Directories="$(StagingPath)" />
+    <ItemGroup>
+      <StageFiles Include="$(TargetDir)$(AssemblyName).dll" />
+      <StageFiles Include="$(TargetDir)manifest.json" />
+      <StageFiles Include="$(TargetDir)i18n/**/*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(StageFiles)" DestinationFiles="@(StageFiles->'$(StagingPath)/%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
     <PackageReference Include="Pathoschild.Stardew.ModTranslationClassBuilder" Version="2.2.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="ContentPatcher" HintPath="$(GameModsPath)\ContentPatcher\ContentPatcher.dll" Private="False" />
+    <Reference Include="ContentPatcher" HintPath="$(GameModsPath)/ContentPatcher/ContentPatcher.dll" Private="False" />
+    <Content Include="manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

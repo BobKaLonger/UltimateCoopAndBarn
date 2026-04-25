@@ -37,7 +37,8 @@ namespace UltimateCoopAndBarn
             I18n.Init(Helper.Translation);
 
             var mi = Helper.ModRegistry.Get("bobkalonger.ultimatecoopnbarnCP");
-            cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
+            if (mi != null)
+                cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             Helper.Events.GameLoop.ReturnedToTitle += (s, e) =>
             {

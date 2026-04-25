@@ -48,6 +48,7 @@
 		},
 		{
 			"UniqueID": "KediDili.VanillaPlusProfessions",
+			"MinimumVersion": "1.1.1",
 			"IsRequired": false
 		},
 		{
@@ -57,6 +58,7 @@
 		},
 		{
 			"UniqueID": "Spiderbuttons.CMCT",
+			"MinimumVersion": "1.1.2",
 			"IsRequired": false
 		}
 	]

@@ -37,7 +37,7 @@ namespace UltimateCoopAndBarn
 
             I18n.Init(Helper.Translation);
 
-            var mi = Helper.ModRegistry.Get("bobkalonger.ultimatecoopnbarnCP");
+            var mi = Helper.ModRegistry.Get("bobkalonger.UltimateCoopAndBarnCP");
             if (mi != null)
                 cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 

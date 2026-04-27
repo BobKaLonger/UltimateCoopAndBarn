@@ -160,7 +160,7 @@ namespace UltimateCoopAndBarn
             if (!Helper.ModRegistry.IsLoaded("Esca.EMP")) return false;
             return GameStateQuery.CheckConditions(
                 "KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding",
-                Game1.currentLocation,
+                Game1.getFarm(),
                 Game1.player
             );
         }
@@ -338,9 +338,10 @@ namespace UltimateCoopAndBarn
             {
                 foreach (var building in Game1.getFarm().buildings)
                 {
-                    if (building.GetIndoors()== e.NewLocation &&
+                    if (building.GetIndoors() == e.NewLocation &&
                         building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                     {
+                        Helper.GameContent.InvalidateCache(e.NewLocation.mapPath.Value);
                         e.NewLocation.reloadMap();
                         building.updateInteriorWarps(e.NewLocation);
                         break;
@@ -424,6 +425,7 @@ namespace UltimateCoopAndBarn
             }
 
             bool vppActive = IsVppOvercrowdingActive();
+            Monitor.Log($"VPP active: {vppActive}", LogLevel.Debug);
             
             foreach (Building building in Game1.getFarm().buildings)
             {
@@ -437,6 +439,8 @@ namespace UltimateCoopAndBarn
                 string upgradeKey = $"{ModManifest.UniqueID}/buildingKey";
                 string currentLevel = building.buildingType.Value;
                 building.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
+
+                Monitor.Log($"Building: {building.buildingType.Value}, upgradeKey match: {lastMovedLevel == currentLevel}", LogLevel.Debug);
                 
                 if (lastMovedLevel != currentLevel)
                 {
@@ -453,6 +457,8 @@ namespace UltimateCoopAndBarn
                 building.modData.TryGetValue(VppItemKey, out string lastVppState);
                 string targetVppState = vppActive ? "VPP" : "Base";
 
+                Monitor.Log($"VppItemKey check — lastVppState: '{lastVppState}', targetVppState: '{targetVppState}', match: {lastVppState == targetVppState}", LogLevel.Debug);
+
                 if (lastVppState == targetVppState) continue;
 
                 if (building.buildingType.Value is (UltimateBarn or SuperDenseBarn))
@@ -465,8 +471,8 @@ namespace UltimateCoopAndBarn
                     if (vppActive) CoopItemMovestoVPP(interior);
                     else CoopItemMovestoBase(interior);
                 }
-
                 building.modData[VppItemKey] = targetVppState;
+                Monitor.Log($"Triggering VPP item moves for {building.buildingType.Value}, vppActive: {vppActive}", LogLevel.Debug);
             }
         }
 

@@ -30,6 +30,7 @@ namespace UltimateCoopAndBarn
         internal const string SuperDenseCoop = $"{UltimateCP}SuperDenseCoop";
         internal const string UltimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
         internal const string UltimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
+        private const string VppItemKey = "Ultimate/vppItems";
         public override void Entry(IModHelper helper)
         {
             modInstance = this;
@@ -46,6 +47,7 @@ namespace UltimateCoopAndBarn
                 _lastMode = null;
             };
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+            helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.GameLoop.DayStarted += OnDayStarted;
             helper.Events.Player.Warped += PlayerOnWarped;
 
@@ -151,6 +153,183 @@ namespace UltimateCoopAndBarn
             return "Vanilla";
         }
 
+        private bool IsVppOvercrowdingActive()
+        {
+            if (!Context.IsWorldReady) return false;
+            if (!Helper.ModRegistry.IsLoaded("KediDili.VanillaPlusProfessions")) return false;
+            if (!Helper.ModRegistry.IsLoaded("Esca.EMP")) return false;
+            return GameStateQuery.CheckConditions(
+                "KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding",
+                Game1.currentLocation,
+                Game1.player
+            );
+        }
+
+        private static void ShiftObjectsInRect(GameLocation interior, Rectangle sourceRect, int xShift, HashSet<string> excludedIds = null)
+        {
+            var toMove = interior.objects.Pairs
+                .Where(p => sourceRect.Contains((int)p.Key.X, (int)p.Key.Y))
+                .Where(p => excludedIds == null || !excludedIds.Contains(p.Value.QualifiedItemId))
+                .ToList();
+            
+            foreach (var (tile, obj) in toMove)
+            {
+                Vector2 dest = new Vector2(tile.X + xShift, tile.Y);
+                if (interior.objects.ContainsKey(dest))
+                {
+                    Game1.player.team.returnedDonations.Add(interior.objects[dest]);
+                    Game1.player.team.newLostAndFoundItems.Value = true;
+                    interior.objects.Remove(dest);
+                }
+                interior.removeObject(tile, false);
+                obj.TileLocation = dest;
+                interior.objects[dest] = obj;
+            }
+        }
+
+        private static void MoveObjectTo(GameLocation interior, Vector2 source, Vector2 dest)
+        {
+            if (!interior.objects.TryGetValue(source, out var obj)) return;
+            if (interior.objects.ContainsKey(dest))
+            {
+                Game1.player.team.returnedDonations.Add(interior.objects[dest]);
+                Game1.player.team.newLostAndFoundItems.Value = true;
+                interior.objects.Remove(dest);
+            }
+            interior.removeObject(source, false);
+            obj.TileLocation = dest;
+            interior.objects[dest] = obj;
+        }
+
+        private static void BarnItemMovesToVPP(GameLocation interior)
+        {
+            if (interior.map == null) return;
+            var groundFloor = new Rectangle(2, 19, 59, 27);
+            var loft = new Rectangle(22, 6, 19, 7);
+            ShiftObjectsInRect(interior, groundFloor, 5);
+            ShiftObjectsInRect(interior, loft, 5);
+        }
+
+        private static void BarnItemMovesToBase(GameLocation interior)
+        {
+            if (interior.map == null) return;
+
+            var landingPad = new Rectangle(21, 21, 21, 24);
+            var edgeZones = new[]
+            {
+                new Rectangle(2, 19, 5, 27),
+                new Rectangle(66, 19, 5, 27),
+                new Rectangle(22, 6, 5, 7),
+                new Rectangle(46, 6, 5, 7)
+            };
+
+            foreach (var zone in edgeZones)
+            {
+                var edgeItems = interior.objects.Pairs
+                    .Where(p => zone.Contains((int)p.Key.X, (int)p.Key.Y))
+                    .ToList();
+
+                    foreach (var (tile, obj) in edgeItems)
+                {
+                    Vector2 dest = LandingPadRect(interior, landingPad);
+                    interior.removeObject(tile, false);
+                    if (dest != Vector2.Zero)
+                    {
+                        obj.TileLocation = dest;
+                        interior.objects[dest] = obj;
+                    }
+                    else
+                    {
+                        Game1.player.team.returnedDonations.Add(obj);
+                        Game1.player.team.newLostAndFoundItems.Value = true;
+                    }
+                }
+            }
+
+            var groundFloor = new Rectangle(7, 19, 59, 27);
+            var loft = new Rectangle(27, 6, 19, 7);
+            ShiftObjectsInRect(interior, groundFloor, -5);
+            ShiftObjectsInRect(interior, loft, -5);
+        }
+
+        private static readonly Vector2[] IncubatorBasePositions =
+        {
+            new Vector2(2, 14),
+            new Vector2(2, 22),
+            new Vector2(2, 30),
+            new Vector2(2, 38)            
+        };
+
+        private static void CoopItemMovestoVPP(GameLocation interior)
+        {
+            if (interior.map == null) return;
+
+            var groundFloor = new Rectangle(2, 6, 34, 38);
+            var entranceNook = new Rectangle(36, 36, 6, 4);
+            var excluded = new HashSet<string> { "(BC)101" };
+
+            ShiftObjectsInRect(interior, groundFloor, 5, excluded);
+            ShiftObjectsInRect(interior, entranceNook, 10);
+        }
+
+        private static void CoopItemMovestoBase(GameLocation interior)
+        {
+            if (interior.map == null) return;
+
+            var landingPad = new Rectangle(20, 7, 16, 36);
+            var excluded = new HashSet<string> { "(BC)101" };
+
+            var edgeZones = new[]
+            {
+                new Rectangle(2, 6, 5, 38),
+                new Rectangle(41, 6, 5, 38)
+            };
+
+            foreach (var zone in edgeZones)
+            {
+                var edgeItems = interior.objects.Pairs
+                    .Where(p => zone.Contains((int)p.Key.X, (int)p.Key.Y))
+                    .Where(p => !excluded.Contains(p.Value.QualifiedItemId))
+                    .ToList();
+
+                    foreach (var (tile, obj) in edgeItems)
+                {
+                    Vector2 dest = LandingPadRect(interior, landingPad);
+                    interior.removeObject(tile, false);
+                    if (dest != Vector2.Zero)
+                    {
+                        obj.TileLocation = dest;
+                        interior.objects[dest] = obj;
+                    }
+                    else
+                    {
+                        Game1.player.team.returnedDonations.Add(obj);
+                        Game1.player.team.newLostAndFoundItems.Value = true;
+                    }
+                }
+            }
+
+            var groundFloor = new Rectangle(7, 6, 34, 38);
+            var entranceNook = new Rectangle(46, 36, 6, 4);
+
+            ShiftObjectsInRect(interior, groundFloor, -5, excluded);
+            ShiftObjectsInRect(interior, entranceNook, -10);
+
+            var shiftedIncubatorPositions = new[]
+            {
+                new Vector2(7, 14),
+                new Vector2(7, 22),
+                new Vector2(7, 30),
+                new Vector2(7, 38)
+            };
+
+            for (int i = 0; i < shiftedIncubatorPositions.Length; i++)
+            {
+                if (interior.objects.ContainsKey(shiftedIncubatorPositions[i]))
+                    MoveObjectTo(interior, shiftedIncubatorPositions[i], IncubatorBasePositions[i]);
+            }
+        }
+
         private void PlayerOnWarped(object sender, WarpedEventArgs e)
         {
             RemoveCustomlights(e.OldLocation);
@@ -210,31 +389,84 @@ namespace UltimateCoopAndBarn
                 Game1.currentLightSources.Remove(key);
         }
 
+        private void MakeIncubatorsMoveable(AnimalHouse indoors)
+        {
+            foreach (var pair in indoors.Objects.Pairs)
+            {
+                StardewValley.Object obj = pair.Value;
+
+                if (obj.QualifiedItemId == "(BC)101" && obj.questItem.Value)
+                {
+                    obj.questItem.Value = false;
+                }
+            }
+        }
+
+        private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
+        {
+            foreach (Building building in Game1.getFarm().buildings)
+            {
+                if (building.indoors.Value is AnimalHouse indoors)
+                {
+                    MakeIncubatorsMoveable(indoors);
+                }
+            }
+        }
+
         private void OnDayStarted(object sender, DayStartedEventArgs e)
         {
             foreach (Building building in Game1.getFarm().buildings)
             {
-                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop or UltimatePremiumBarn or UltimatePremiumCoop))
+                if (building.indoors.Value is AnimalHouse indoors)
+                {
+                    MakeIncubatorsMoveable(indoors);
+                }
+            }
+
+            bool vppActive = IsVppOvercrowdingActive();
+            
+            foreach (Building building in Game1.getFarm().buildings)
+            {
+                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     continue;
 
                 var interior = building.GetIndoors();
 
-                if (building.daysUntilUpgrade.Value > 0) continue;
-
-                if (interior == null) continue;
+                if (building.daysUntilUpgrade.Value > 0 || interior == null) continue;
 
                 string upgradeKey = $"{ModManifest.UniqueID}/buildingKey";
                 string currentLevel = building.buildingType.Value;
-
                 building.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
-                if (lastMovedLevel == currentLevel) continue;
+                
+                if (lastMovedLevel != currentLevel)
+                {
+                    if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                        BarnItemMoves(interior);
+                    else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                        CoopItemMoves(interior);
+                    building.modData[upgradeKey] = currentLevel;
 
-                if (building.buildingType.Value is UltimateBarn or SuperDenseBarn or UltimatePremiumBarn)
-                    BarnItemMoves(interior);
-                else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop or UltimatePremiumCoop)
-                    CoopItemMoves(interior);
+                    building.modData[VppItemKey] = vppActive ? "VPP" : "Base";
+                    continue;
+                }
+                
+                building.modData.TryGetValue(VppItemKey, out string lastVppState);
+                string targetVppState = vppActive ? "VPP" : "Base";
 
-                building.modData[upgradeKey] = currentLevel;
+                if (lastVppState == targetVppState) continue;
+
+                if (building.buildingType.Value is (UltimateBarn or SuperDenseBarn))
+                {
+                    if (vppActive) BarnItemMovesToVPP(interior);
+                    else BarnItemMovesToBase(interior);
+                }
+                else if (building.buildingType.Value is (UltimateCoop or SuperDenseCoop))
+                {
+                    if (vppActive) CoopItemMovestoVPP(interior);
+                    else CoopItemMovestoBase(interior);
+                }
+
+                building.modData[VppItemKey] = targetVppState;
             }
         }
 
@@ -263,7 +495,7 @@ namespace UltimateCoopAndBarn
             return results;
         }
 
-        private static Vector2 LandingPadRect(GameLocation location, Microsoft.Xna.Framework.Rectangle landingPad)
+        private static Vector2 LandingPadRect(GameLocation location, Rectangle landingPad)
         {
             for (int y = landingPad.Top; y < landingPad.Bottom; y++)
             {
@@ -293,12 +525,12 @@ namespace UltimateCoopAndBarn
 
             var spawnIfMissing = new HashSet<string> { "(BC)104", "(BC)165", "(BC)272" };
 
-            var haySlots = new List<Microsoft.Xna.Framework.Rectangle>
+            var haySlots = new List<Rectangle>
             {
-                new Microsoft.Xna.Framework.Rectangle(4,  29, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(4,  39, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(47, 29, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(47, 39, 12, 1)
+                new Rectangle(4,  29, 12, 1),
+                new Rectangle(4,  39, 12, 1),
+                new Rectangle(47, 29, 12, 1),
+                new Rectangle(47, 39, 12, 1)
             };
 
             Vector2 startCenter = new Vector2(
@@ -361,7 +593,7 @@ namespace UltimateCoopAndBarn
                 interior.objects[kvp.Value] = obj;
             }
 
-            var landingPad = new Microsoft.Xna.Framework.Rectangle(x: 21, y: 21, width: 21, height: 24);
+            var landingPad = new Rectangle(x: 21, y: 21, width: 21, height: 24);
 
             var barnItemMoves = interior.objects.Pairs
                 .Where(p => !excludedIds.Contains(p.Value.QualifiedItemId))
@@ -399,12 +631,12 @@ namespace UltimateCoopAndBarn
 
             var spawnIfMissing = new HashSet<string> { "(BC)104", "(BC)165", "(BC)272" };
 
-            var haySlots = new List<Microsoft.Xna.Framework.Rectangle>
+            var haySlots = new List<Rectangle>
             {
-                new Microsoft.Xna.Framework.Rectangle(4,  14, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(4,  22, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(4,  30, 12, 1),
-                new Microsoft.Xna.Framework.Rectangle(4,  38, 12, 1)
+                new Rectangle(4,  14, 12, 1),
+                new Rectangle(4,  22, 12, 1),
+                new Rectangle(4,  30, 12, 1),
+                new Rectangle(4,  38, 12, 1)
             };
 
             Vector2 startCenter = new Vector2(
@@ -507,7 +739,7 @@ namespace UltimateCoopAndBarn
                 interior.objects[kvp.Value] = obj;
             }
 
-            var landingPad = new Microsoft.Xna.Framework.Rectangle(x: 20, y: 7, width: 16, height: 36);
+            var landingPad = new Rectangle(x: 20, y: 7, width: 16, height: 36);
 
             var coopItemMoves = interior.objects.Pairs
                 .Where(p => !excludedIds.Contains(p.Value.QualifiedItemId))
@@ -609,8 +841,12 @@ namespace UltimateCoopAndBarn
                         BarnItemMoves(interior);
                     else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
                         CoopItemMoves(interior);
+                    
+                    if (interior is AnimalHouse animalHouse)
+                        modInstance.MakeIncubatorsMoveable(animalHouse);
 
                     __instance.modData[upgradeKey] = currentLevel;
+                    __instance.modData[VppItemKey] = modInstance.IsVppOvercrowdingActive() ? "VPP" : "Base";
                 }
             }
         }

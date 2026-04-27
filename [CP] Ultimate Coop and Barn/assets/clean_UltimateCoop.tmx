@@ -98,7 +98,7 @@
    eJzt2KENACAMRUEWYEP2nwOBxUAQfLhLKqioeopSAN7T6pgbdrBj1tbK+9QN2KFfkumXZPolmX5Jpl+S6fcPr/5Z6hdI1QGCgCDR
   </data>
  </layer>
- <objectgroup id="2" name="Back">
+ <objectgroup id="2" name="Back" visible="0">
   <object id="59" name="TileData" x="304" y="224" width="16" height="16">
    <properties>
     <property name="WaterSource" value="T"/>

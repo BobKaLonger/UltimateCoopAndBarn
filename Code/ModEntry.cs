@@ -20,8 +20,8 @@ namespace UltimateCoopAndBarn
     }
     public class ModEntry : Mod
     {
-        public static ModEntry modInstance;
-        public static IContentPack cpPack;
+        public static ModEntry? modInstance;
+        public static IContentPack? cpPack;
         internal const string UltimateCP = "bobkalonger.UltimateCoopAndBarnCP_";
         internal const string SVExpandCP = "FlashShifter.StardewValleyExpandedCP_";
         internal const string UltimateBarn = $"{UltimateCP}UltimateBarn";
@@ -57,7 +57,7 @@ namespace UltimateCoopAndBarn
         }
 
         ///<inheritdoc cref="IGameLoopEvents.GameLaunched"/>
-        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
         {
             var cp = Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
             if (cp is null)
@@ -77,13 +77,13 @@ namespace UltimateCoopAndBarn
             }
             return new[] { ComputeUltimateMode() };
         }
-        private string _lastMode;
-        private string _cachedUpgradeConfig = null;
+        private string? _lastMode;
+        private string? _cachedUpgradeConfig = null;
         private string GetUpgradeConfig()
         {
             if (_cachedUpgradeConfig != null) return _cachedUpgradeConfig;
             var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
-            if (config != null && config.TryGetValue("Ultimate Building Upgrade", out string value))
+            if (config != null && config.TryGetValue("Ultimate Building Upgrade", out string? value))
                 _cachedUpgradeConfig = value;
             return _cachedUpgradeConfig ?? "Auto";
         }
@@ -165,7 +165,7 @@ namespace UltimateCoopAndBarn
             );
         }
 
-        private static void ShiftObjectsInRect(GameLocation interior, Rectangle sourceRect, int xShift, HashSet<string> excludedIds = null)
+        private static void ShiftObjectsInRect(GameLocation interior, Rectangle sourceRect, int xShift, HashSet<string>? excludedIds = null)
         {
             var toMove = interior.objects.Pairs
                 .Where(p => sourceRect.Contains((int)p.Key.X, (int)p.Key.Y))
@@ -330,7 +330,7 @@ namespace UltimateCoopAndBarn
             }
         }
 
-        private void PlayerOnWarped(object sender, WarpedEventArgs e)
+        private void PlayerOnWarped(object? sender, WarpedEventArgs e)
         {
             RemoveCustomlights(e.OldLocation);
 
@@ -403,7 +403,7 @@ namespace UltimateCoopAndBarn
             }
         }
 
-        private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
+        private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
             foreach (Building building in Game1.getFarm().buildings)
             {
@@ -414,7 +414,7 @@ namespace UltimateCoopAndBarn
             }
         }
 
-        private void OnDayStarted(object sender, DayStartedEventArgs e)
+        private void OnDayStarted(object? sender, DayStartedEventArgs e)
         {
             foreach (Building building in Game1.getFarm().buildings)
             {
@@ -777,7 +777,7 @@ namespace UltimateCoopAndBarn
                 if (!Game1.IsMasterGame) return;
                 if (__instance.Name != "Robin") return;
 
-                Building building = null;
+                Building? building = null;
 
                 foreach (var location in Game1.locations)
                 {
@@ -825,19 +825,19 @@ namespace UltimateCoopAndBarn
                     return;
                 
 
-                string upgradeKey = $"{modInstance.ModManifest.UniqueID}/buildingKey";
+                string upgradeKey = $"{modInstance!.ModManifest.UniqueID}/buildingKey";
                 string currentLevel = __instance.buildingType.Value;
 
                 __instance.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
                 if (lastMovedLevel == currentLevel)
                     return;
 
-                modInstance.Helper.Events.GameLoop.UpdateTicked += DoItemMoves;
+                modInstance!.Helper.Events.GameLoop.UpdateTicked += DoItemMoves;
 
-                void DoItemMoves(object sender, UpdateTickedEventArgs e)
+                void DoItemMoves(object? sender, UpdateTickedEventArgs e)
                 {
                     if (!e.IsMultipleOf(3)) return;
-                    modInstance.Helper.Events.GameLoop.UpdateTicked -= DoItemMoves;
+                    modInstance!.Helper.Events.GameLoop.UpdateTicked -= DoItemMoves;
 
                     GameLocation interior = __instance.GetIndoors();
                     if (interior == null || interior.map == null)
@@ -849,10 +849,10 @@ namespace UltimateCoopAndBarn
                         CoopItemMoves(interior);
                     
                     if (interior is AnimalHouse animalHouse)
-                        modInstance.MakeIncubatorsMoveable(animalHouse);
+                        modInstance!.MakeIncubatorsMoveable(animalHouse);
 
                     __instance.modData[upgradeKey] = currentLevel;
-                    __instance.modData[VppItemKey] = modInstance.IsVppOvercrowdingActive() ? "VPP" : "Base";
+                    __instance.modData[VppItemKey] = modInstance!.IsVppOvercrowdingActive() ? "VPP" : "Base";
                 }
             }
         }
@@ -957,7 +957,7 @@ namespace UltimateCoopAndBarn
                         }
                         if (__instance.OnUseHumanDoor(who))
                         {
-                            who.currentLocation.playSound("doorClose", tileLocation);
+                            who.currentLocation?.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
                             if (interior.warps.Count > 1)
                                 Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
@@ -987,7 +987,7 @@ namespace UltimateCoopAndBarn
                         }
                         if (__instance.OnUseHumanDoor(who))
                         {
-                            who.currentLocation.playSound("doorClose", tileLocation);
+                            who.currentLocation?.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
                             if (interior.warps.Count > 1)
                                 Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
@@ -1034,7 +1034,7 @@ namespace UltimateCoopAndBarn
         {
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
-                string toCheck = null;
+                string? toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == UltimatePremiumCoop)
                 {
                     toCheck = UltimateCoop;

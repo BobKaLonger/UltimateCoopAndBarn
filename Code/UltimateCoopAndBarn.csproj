@@ -6,7 +6,9 @@
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <EnableHarmony>true</EnableHarmony>
-	  <LangVersion>latest</LangVersion>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <EnableModDeploy>false</EnableModDeploy>
   </PropertyGroup>
   <Target Name="StageForTesting" AfterTargets="Build">

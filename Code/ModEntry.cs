@@ -162,11 +162,35 @@ namespace UltimateCoopAndBarn
             );
         }
 
+        private static void ReturnHayToSilo(GameLocation interior, Rectangle zone)
+        {
+            var farm = Game1.getFarm();
+            var hayInZone = interior.objects.Pairs
+                .Where(p => zone.Contains((int)p.Key.X, (int)p.Key.Y) && p.Value.QualifiedItemId == "(O)178")
+                .ToList();
+
+            foreach (var (tile, obj) in hayInZone)
+            {
+                interior.removeObject(tile, false);
+                int leftover = farm.tryToAddHay(obj.Stack);
+                if (leftover > 0)
+                {
+                    var leftoverHay = ItemRegistry.Create("(O)178", leftover) as StardewValley.Object;
+                    if (leftoverHay != null)
+                    {
+                        Game1.player.team.returnedDonations.Add(leftoverHay);
+                        Game1.player.team.newLostAndFoundItems.Value = true;
+                    }
+                }
+            }
+        }
+
         private static void ShiftObjectsInRect(GameLocation interior, Rectangle sourceRect, int xShift, HashSet<string>? excludedIds = null)
         {
             var toMove = interior.objects.Pairs
                 .Where(p => sourceRect.Contains((int)p.Key.X, (int)p.Key.Y))
                 .Where(p => excludedIds == null || !excludedIds.Contains(p.Value.QualifiedItemId))
+                .OrderBy(p => xShift > 0 ? -p.Key.X : p.Key.X)
                 .ToList();
             
             foreach (var (tile, obj) in toMove)
@@ -201,9 +225,16 @@ namespace UltimateCoopAndBarn
         private static void BarnItemMovesToVPP(GameLocation interior)
         {
             if (interior.map == null) return;
+
+            MoveObjectTo(interior, new Vector2(4, 29), new Vector2(16, 29));
+            MoveObjectTo(interior, new Vector2(4, 39), new Vector2(16, 39));
+            ShiftObjectsInRect(interior, new Rectangle(47, 29, 5, 1), 12, null);
+            ShiftObjectsInRect(interior, new Rectangle(47, 39, 5, 1), 12, null);
+
             var groundFloor = new Rectangle(2, 19, 59, 27);
             var loft = new Rectangle(22, 6, 19, 7);
-            ShiftObjectsInRect(interior, groundFloor, 5);
+            var hayExcluded = new HashSet<string> { "(O)178" };
+            ShiftObjectsInRect(interior, groundFloor, 5, hayExcluded);
             ShiftObjectsInRect(interior, loft, 5);
         }
 

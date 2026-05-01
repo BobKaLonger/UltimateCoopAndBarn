@@ -6,10 +6,7 @@ using StardewValley;
 using System.Reflection;
 using StardewValley.Buildings;
 using StardewValley.Objects;
-using System;
-using System.Collections.Generic;
 using StardewValley.GameData.Buildings;
-using System.Linq;
 
 namespace UltimateCoopAndBarn
 {
@@ -344,6 +341,25 @@ namespace UltimateCoopAndBarn
                         Helper.GameContent.InvalidateCache(e.NewLocation.mapPath.Value);
                         e.NewLocation.reloadMap();
                         building.updateInteriorWarps(e.NewLocation);
+
+                        bool vppActive = IsVppOvercrowdingActive();
+                        building.modData.TryGetValue(VppItemKey, out string lastVppState);
+                        string targetVppState = vppActive ? "VPP" : "Base";
+
+                        if (lastVppState != targetVppState)
+                        {
+                            if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                            {
+                                if (vppActive) BarnItemMovesToVPP(e.NewLocation);
+                                else BarnItemMovesToBase(e.NewLocation);
+                            }
+                            else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                            {
+                                if (vppActive) CoopItemMovestoVPP(e.NewLocation);
+                                else CoopItemMovestoBase(e.NewLocation);
+                            }
+                            building.modData[VppItemKey] = targetVppState;
+                        }
                         break;
                     }
                 }
@@ -448,8 +464,16 @@ namespace UltimateCoopAndBarn
                         BarnItemMoves(interior);
                     else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
                         CoopItemMoves(interior);
-                    building.modData[upgradeKey] = currentLevel;
 
+                    if (vppActive)
+                    {
+                        if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                            BarnItemMovesToVPP(interior);
+                        else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                            CoopItemMovestoVPP(interior);
+                    }
+
+                    building.modData[upgradeKey] = currentLevel;
                     building.modData[VppItemKey] = vppActive ? "VPP" : "Base";
                     continue;
                 }
@@ -847,12 +871,21 @@ namespace UltimateCoopAndBarn
                         BarnItemMoves(interior);
                     else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
                         CoopItemMoves(interior);
+
+                    bool vppActive = modInstance.IsVppOvercrowdingActive();
+                    if (vppActive)
+                    {
+                        if (__instance.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                            BarnItemMovesToVPP(interior);
+                        else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                            CoopItemMovestoVPP(interior);
+                    }
                     
                     if (interior is AnimalHouse animalHouse)
                         modInstance!.MakeIncubatorsMoveable(animalHouse);
 
                     __instance.modData[upgradeKey] = currentLevel;
-                    __instance.modData[VppItemKey] = modInstance!.IsVppOvercrowdingActive() ? "VPP" : "Base";
+                    __instance.modData[VppItemKey] = vppActive ? "VPP" : "Base";
                 }
             }
         }

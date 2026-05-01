@@ -9,10 +9,10 @@ for (var y = 0; y < layer.height; y++) {
         }
     }
 }
-var file = new TextFile("/home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/ultimatecoopnbarn/REF/Maps/barnDayNightVPP.csv", TextFile.WriteOnly);
+var file = new TextFile("/home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/UltimateCoopAndBarn/REF/Maps/barnDayNightVPP.csv", TextFile.WriteOnly);
 file.write(lines.join("\n"));
 file.commit();
-tiled.log("Done! Saved to /home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/ultimatecoopnbarn/REF/Maps/barnDayNightVPP.csv");
+tiled.log("Done! Saved to /home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/UltimateCoopAndBarn/REF/Maps/barnDayNightVPP.csv");
 
 
 var layer = tiled.activeAsset.currentLayer;
@@ -26,7 +26,7 @@ for (var y = 0; y < layer.height; y++) {
         }
     }
 }
-var file = new TextFile("/home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/ultimatecoopnbarn/REF/Maps/coopDayNightVPP.csv", TextFile.WriteOnly);
+var file = new TextFile("/home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/UltimateCoopAndBarn/REF/Maps/coopDayNightVPP.csv", TextFile.WriteOnly);
 file.write(lines.join("\n"));
 file.commit();
-tiled.log("Done! Saved to /home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/ultimatecoopnbarn/REF/Maps/coopDayNightVPP.csv");
+tiled.log("Done! Saved to /home/bobkalonger/StardewModding/COOP AND BARN FIXES/github/UltimateCoopAndBarn/REF/Maps/coopDayNightVPP.csv");

@@ -378,7 +378,7 @@ namespace UltimateCoopAndBarn
 
             for (int i = 0; i < shiftedIncubatorPositions.Length; i++)
             {
-                if (interior.objects.ContainsKey(shiftedIncubatorPositions[i]))
+                if (interior.objects.TryGetValue(shiftedIncubatorPositions[i], out var obj) && obj.QualifiedItemId == "(BC)101")
                     MoveObjectTo(interior, shiftedIncubatorPositions[i], IncubatorBasePositions[i]);
             }
         }
@@ -497,7 +497,6 @@ namespace UltimateCoopAndBarn
             }
 
             bool vppActive = IsVppOvercrowdingActive();
-            Monitor.Log($"VPP active: {vppActive}", LogLevel.Debug);
             
             foreach (Building building in Game1.getFarm().buildings)
             {
@@ -511,8 +510,6 @@ namespace UltimateCoopAndBarn
                 string upgradeKey = $"{ModManifest.UniqueID}/buildingKey";
                 string currentLevel = building.buildingType.Value;
                 building.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
-
-                Monitor.Log($"Building: {building.buildingType.Value}, upgradeKey match: {lastMovedLevel == currentLevel}", LogLevel.Debug);
                 
                 if (lastMovedLevel != currentLevel)
                 {
@@ -537,8 +534,6 @@ namespace UltimateCoopAndBarn
                 building.modData.TryGetValue(VppItemKey, out string lastVppState);
                 string targetVppState = vppActive ? "VPP" : "Base";
 
-                Monitor.Log($"VppItemKey check — lastVppState: '{lastVppState}', targetVppState: '{targetVppState}', match: {lastVppState == targetVppState}", LogLevel.Debug);
-
                 if (lastVppState == targetVppState) continue;
 
                 if (building.buildingType.Value is (UltimateBarn or SuperDenseBarn))
@@ -552,7 +547,6 @@ namespace UltimateCoopAndBarn
                     else CoopItemMovestoBase(interior);
                 }
                 building.modData[VppItemKey] = targetVppState;
-                Monitor.Log($"Triggering VPP item moves for {building.buildingType.Value}, vppActive: {vppActive}", LogLevel.Debug);
             }
         }
 
@@ -919,7 +913,6 @@ namespace UltimateCoopAndBarn
 
                 void DoItemMoves(object? sender, UpdateTickedEventArgs e)
                 {
-                    if (!e.IsMultipleOf(3)) return;
                     modInstance!.Helper.Events.GameLoop.UpdateTicked -= DoItemMoves;
 
                     GameLocation interior = __instance.GetIndoors();

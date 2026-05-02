@@ -483,6 +483,15 @@ namespace UltimateCoopAndBarn
                 {
                     MakeIncubatorsMoveable(indoors);
                 }
+
+                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
+                    continue;
+                
+                var interior = building.GetIndoors();
+                if (interior == null) continue;
+
+                interior.reloadMap();
+                building.updateInteriorWarps(interior);
             }
         }
 

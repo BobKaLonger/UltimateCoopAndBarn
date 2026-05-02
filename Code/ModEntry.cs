@@ -305,7 +305,7 @@ namespace UltimateCoopAndBarn
             MoveObjectTo(interior, new Vector2(4, 14), new Vector2(16, 14));
             MoveObjectTo(interior, new Vector2(4, 22), new Vector2(16, 22));
             MoveObjectTo(interior, new Vector2(4, 30), new Vector2(16, 30));
-            MoveObjectTo(interior, new Vector2(4, 28), new Vector2(16, 38));
+            MoveObjectTo(interior, new Vector2(4, 38), new Vector2(16, 38));
 
             var groundFloor = new Rectangle(2, 6, 34, 38);
             var entranceNook = new Rectangle(36, 36, 6, 4);

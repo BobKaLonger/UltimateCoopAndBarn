@@ -240,6 +240,16 @@ namespace UltimateCoopAndBarn
         {
             if (interior.map == null) return;
 
+            ReturnHayToSilo(interior, new Rectangle(17, 29, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(17, 39, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(64, 29, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(64, 39, 4, 1));
+
+            MoveObjectTo(interior, new Vector2(16, 29), new Vector2(4, 29));
+            MoveObjectTo(interior, new Vector2(16, 39), new Vector2(4, 39));
+            ShiftObjectsInRect(interior, new Rectangle(59, 29, 5, 1), -12, null);
+            ShiftObjectsInRect(interior, new Rectangle(59, 39, 5, 1), -12, null);
+
             var landingPad = new Rectangle(21, 21, 21, 24);
             var edgeZones = new[]
             {
@@ -253,6 +263,7 @@ namespace UltimateCoopAndBarn
             {
                 var edgeItems = interior.objects.Pairs
                     .Where(p => zone.Contains((int)p.Key.X, (int)p.Key.Y))
+                    .Where(p => p.Value.QualifiedItemId != "(O)178")
                     .ToList();
 
                     foreach (var (tile, obj) in edgeItems)
@@ -274,7 +285,8 @@ namespace UltimateCoopAndBarn
 
             var groundFloor = new Rectangle(7, 19, 59, 27);
             var loft = new Rectangle(27, 6, 19, 7);
-            ShiftObjectsInRect(interior, groundFloor, -5);
+            var hayExcluded = new HashSet<string> { "(O)178" };
+            ShiftObjectsInRect(interior, groundFloor, -5, hayExcluded);
             ShiftObjectsInRect(interior, loft, -5);
         }
 
@@ -290,9 +302,14 @@ namespace UltimateCoopAndBarn
         {
             if (interior.map == null) return;
 
+            MoveObjectTo(interior, new Vector2(4, 14), new Vector2(16, 14));
+            MoveObjectTo(interior, new Vector2(4, 22), new Vector2(16, 22));
+            MoveObjectTo(interior, new Vector2(4, 30), new Vector2(16, 30));
+            MoveObjectTo(interior, new Vector2(4, 28), new Vector2(16, 38));
+
             var groundFloor = new Rectangle(2, 6, 34, 38);
             var entranceNook = new Rectangle(36, 36, 6, 4);
-            var excluded = new HashSet<string> { "(BC)101" };
+            var excluded = new HashSet<string> { "(BC)101", "(O)178" };
 
             ShiftObjectsInRect(interior, groundFloor, 5, excluded);
             ShiftObjectsInRect(interior, entranceNook, 10);
@@ -302,8 +319,18 @@ namespace UltimateCoopAndBarn
         {
             if (interior.map == null) return;
 
+            ReturnHayToSilo(interior, new Rectangle(17, 14, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(17, 22, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(17, 30, 4, 1));
+            ReturnHayToSilo(interior, new Rectangle(17, 38, 4, 1));
+
+            MoveObjectTo(interior, new Vector2(16, 14), new Vector2(4, 14));
+            MoveObjectTo(interior, new Vector2(16, 22), new Vector2(4, 22));
+            MoveObjectTo(interior, new Vector2(16, 30), new Vector2(4, 30));
+            MoveObjectTo(interior, new Vector2(16, 38), new Vector2(4, 38));
+
             var landingPad = new Rectangle(20, 7, 16, 36);
-            var excluded = new HashSet<string> { "(BC)101" };
+            var excluded = new HashSet<string> { "(BC)101", "(O)178" };
 
             var edgeZones = new[]
             {
@@ -598,15 +625,17 @@ namespace UltimateCoopAndBarn
             );
 
             var foundHay = SpiralSearch(interior, "(O)178", startCenter, maxRadius: 50);
+
+            foreach (var (sourceTile, obj) in foundHay)
+                interior.removeObject(sourceTile, false);
+
             int haySlotIndex = 0;
             int haySlotX = haySlots[0].Left;
 
             foreach (var (sourceTile, obj) in foundHay)
             {
                 if (haySlotIndex >= haySlots.Count) break;
-
                 Vector2 dest = new Vector2(haySlotX, haySlots[haySlotIndex].Top);
-                interior.removeObject(sourceTile, false);
                 obj.TileLocation = dest;
                 interior.objects[dest] = obj;
 
@@ -704,6 +733,10 @@ namespace UltimateCoopAndBarn
             );
 
             var foundHay = SpiralSearch(interior, "(O)178", startCenter, maxRadius: 50);
+
+            foreach (var (sourceTile, obj) in foundHay)
+                interior.removeObject(sourceTile, false);
+
             int haySlotIndex = 0;
             int haySlotX = haySlots[0].Left;
 
@@ -712,7 +745,6 @@ namespace UltimateCoopAndBarn
                 if (haySlotIndex >= haySlots.Count) break;
 
                 Vector2 dest = new Vector2(haySlotX, haySlots[haySlotIndex].Top);
-                interior.removeObject(sourceTile, false);
                 obj.TileLocation = dest;
                 interior.objects[dest] = obj;
 

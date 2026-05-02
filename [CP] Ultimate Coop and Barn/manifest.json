@@ -27,6 +27,11 @@
 			"IsRequired": true
 		},
 		{
+			"UniqueID": "Spiderbuttons.CMCT",
+			"MinimumVersion": "1.1.2",
+			"IsRequired": true
+		},
+		{
 			"UniqueID": "FlashShifter.StardewValleyExpandedCP",
 			"MinimumVersion": "1.15.10",
 			"IsRequired": false
@@ -59,11 +64,6 @@
 		{
 			"UniqueID": "Esca.EMP",
 			"MinimumVersion": "1.7.2",
-			"IsRequired": false
-		},
-		{
-			"UniqueID": "Spiderbuttons.CMCT",
-			"MinimumVersion": "1.1.2",
 			"IsRequired": false
 		}
 	]

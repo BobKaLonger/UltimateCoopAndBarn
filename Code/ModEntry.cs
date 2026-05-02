@@ -32,8 +32,6 @@ namespace UltimateCoopAndBarn
         {
             modInstance = this;
 
-            I18n.Init(Helper.Translation);
-
             var mi = Helper.ModRegistry.Get("bobkalonger.UltimateCoopAndBarnCP");
             if (mi != null)
                 cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
@@ -725,7 +723,6 @@ namespace UltimateCoopAndBarn
                     if (haySlotIndex < haySlots.Count)
                         haySlotX = haySlots[haySlotIndex].Left;
                 }
-
             }
 
             Vector2[] incubatorDestinations =
@@ -808,7 +805,6 @@ namespace UltimateCoopAndBarn
 
             foreach (var pair in coopItemMoves)
             {
-                        
                 Vector2 dest = LandingPadRect(interior, landingPad);
                 if (dest == Vector2.Zero) continue;
                 interior.removeObject(pair.Key, false);
@@ -1098,6 +1094,8 @@ namespace UltimateCoopAndBarn
         {
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
+                if (__result) return;
+
                 string? toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == UltimatePremiumCoop)
                 {
@@ -1108,15 +1106,11 @@ namespace UltimateCoopAndBarn
                     toCheck = UltimateBarn;
                 }
 
-                if (!__result && toCheck != null)
-                {
-                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
-                    {
-                        __result = true;
-                    }
-                }
+            if (toCheck != null && location.getNumberBuildingsConstructed(toCheck) > 0)
+                __result = true;
             }
         }
+        
 
         [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
         public static class BuildingAutoGrabberFix

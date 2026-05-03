@@ -522,6 +522,15 @@ namespace UltimateCoopAndBarn
                 
                 if (lastMovedLevel != currentLevel)
                 {
+                    if (interior is AnimalHouse animalHouse)
+                    {
+                        foreach (var animal in animalHouse.animals.Values)
+                        {
+                            if (animal.currentLocation != animalHouse)
+                                animal.currentLocation = animalHouse;
+                        }
+                    }
+
                     if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
                         BarnItemMoves(interior);
                     else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)

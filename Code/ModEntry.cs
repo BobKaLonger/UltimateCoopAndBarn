@@ -492,6 +492,15 @@ namespace UltimateCoopAndBarn
 
                 interior.reloadMap();
                 building.updateInteriorWarps(interior);
+
+                if (interior is AnimalHouse animalHouse)
+                {
+                    foreach (var animal in animalHouse.animals.Values)
+                    {
+                        if (animal.currentLocation != animalHouse)
+                            animal.currentLocation = animalHouse;
+                    }
+                }
             }
         }
 

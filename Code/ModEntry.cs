@@ -389,7 +389,7 @@ namespace UltimateCoopAndBarn
 
             if (e.NewLocation is AnimalHouse)
             {
-                foreach (var building in Game1.getFarm().buildings)
+                Utility.ForEachBuilding(building =>
                 {
                     if (building.GetIndoors() == e.NewLocation &&
                         building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
@@ -416,9 +416,10 @@ namespace UltimateCoopAndBarn
                             }
                             building.modData[VppItemKey] = targetVppState;
                         }
-                        break;
+                        return false;
                     }
-                }
+                    return true;
+                });
             }
 
             foreach (var b in e.NewLocation.buildings)
@@ -477,53 +478,51 @@ namespace UltimateCoopAndBarn
 
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
-            foreach (Building building in Game1.getFarm().buildings)
+            Utility.ForEachBuilding(building =>
             {
                 if (building.indoors.Value is AnimalHouse indoors)
                 {
                     MakeIncubatorsMoveable(indoors);
                 }
 
-                if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
-                    continue;
-                
-                var interior = building.GetIndoors();
-                if (interior == null) continue;
-
-                interior.reloadMap();
-                building.updateInteriorWarps(interior);
-
-                if (interior is AnimalHouse animalHouse)
-                {
-                    foreach (var animal in animalHouse.animals.Values)
+                if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
+                {                
+                    var interior = building.GetIndoors();
+                    if (interior != null)
                     {
-                        if (animal.currentLocation != animalHouse)
-                            animal.currentLocation = animalHouse;
+                        interior.reloadMap();
+                        building.updateInteriorWarps(interior);
+
+                        if (interior is AnimalHouse animalHouse)
+                        {
+                            foreach (var animal in animalHouse.animals.Values)
+                            {
+                                if (animal.currentLocation != animalHouse)
+                                    animal.currentLocation = animalHouse;
+                            }
+                        }
                     }
                 }
-            }
+                return true;
+            });
         }
 
         private void OnDayStarted(object? sender, DayStartedEventArgs e)
         {
-            foreach (Building building in Game1.getFarm().buildings)
+            bool vppActive = IsVppOvercrowdingActive();
+
+            Utility.ForEachBuilding(building =>
             {
                 if (building.indoors.Value is AnimalHouse indoors)
-                {
                     MakeIncubatorsMoveable(indoors);
-                }
-            }
 
-            bool vppActive = IsVppOvercrowdingActive();
-            
-            foreach (Building building in Game1.getFarm().buildings)
-            {
                 if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
-                    continue;
+                    return true;
 
                 var interior = building.GetIndoors();
 
-                if (building.daysUntilUpgrade.Value > 0 || interior == null) continue;
+                if (building.daysUntilUpgrade.Value > 0 || interior == null)
+                    return true;
 
                 string upgradeKey = $"{ModManifest.UniqueID}/buildingKey";
                 string currentLevel = building.buildingType.Value;
@@ -555,26 +554,29 @@ namespace UltimateCoopAndBarn
 
                     building.modData[upgradeKey] = currentLevel;
                     building.modData[VppItemKey] = vppActive ? "VPP" : "Base";
-                    continue;
+                    return true;
                 }
                 
                 building.modData.TryGetValue(VppItemKey, out string lastVppState);
                 string targetVppState = vppActive ? "VPP" : "Base";
 
-                if (lastVppState == targetVppState) continue;
+                if (lastVppState == targetVppState)
+                    return true;
 
-                if (building.buildingType.Value is (UltimateBarn or SuperDenseBarn))
+                if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
                 {
                     if (vppActive) BarnItemMovesToVPP(interior);
                     else BarnItemMovesToBase(interior);
                 }
-                else if (building.buildingType.Value is (UltimateCoop or SuperDenseCoop))
+                else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
                 {
                     if (vppActive) CoopItemMovestoVPP(interior);
                     else CoopItemMovestoBase(interior);
                 }
                 building.modData[VppItemKey] = targetVppState;
-            }
+
+                return true;
+            });
         }
 
         private static List<(Vector2 tile, StardewValley.Object obj)> SpiralSearch(GameLocation location, string qualifiedId, Vector2 center, int maxRadius)

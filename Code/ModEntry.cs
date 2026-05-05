@@ -65,10 +65,6 @@ namespace UltimateCoopAndBarn
         }
         private IEnumerable<string> GetUltimateMode()
         {
-            if (!Context.IsWorldReady)
-            {
-                return Array.Empty<string>();
-            }
             return new[] { ComputeUltimateMode() };
         }
         private string? _lastMode;
@@ -126,7 +122,8 @@ namespace UltimateCoopAndBarn
             if (result != _lastMode)
             {
                 _lastMode = result;
-                Helper.GameContent.InvalidateCache("Data/Buildings");
+                if (Context.IsWorldReady)
+                    Helper.GameContent.InvalidateCache("Data/Buildings");
             }
 
             return result;
@@ -481,22 +478,16 @@ namespace UltimateCoopAndBarn
                 }
 
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
-                {                
-                    var interior = building.GetIndoors();
-                    if (interior != null)
+                {   
+                    if (building.GetIndoors() is AnimalHouse animalHouse)
                     {
-                        interior.reloadMap();
-                        building.updateInteriorWarps(interior);
-                    
-                        if (building.GetIndoors() is AnimalHouse animalHouse)
+                        foreach (var animal in animalHouse.animals.Values)
                         {
-                            foreach (var animal in animalHouse.animals.Values)
-                            {
-                                if (animal.currentLocation != animalHouse)
-                                    animal.currentLocation = animalHouse;
-                            }
+                            if (animal.currentLocation != animalHouse)
+                                animal.currentLocation = animalHouse;
                         }
                     }
+                    
                 }
                 return true;
             });

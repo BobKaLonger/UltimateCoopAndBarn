@@ -3,6 +3,9 @@
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
+            "When": {
+                "Barn Floor": "Clean"
+            },
             "Entries": {
                 "{{ModId}}_UltimateBarn": {
                     "ID": "{{i18n:building.ultimate-barn.name}}",
@@ -122,7 +125,7 @@
                             }
 						}
                     ],
-                    "IndoorMap": "ultimate_{{Barn Floor}}_UltimateBarn",
+                    "IndoorMap": "ultimate_Clean_UltimateBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -135,10 +138,12 @@
                 }
             }
         },
-
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
+            "When": {
+                "Barn Floor": "Clean"
+            },
             "Entries": {
                 "{{ModId}}_UltimateCoop": {
                     "ID": "{{i18n:building.ultimate-coop.name}}",
@@ -258,7 +263,282 @@
                             }
 						}
                     ],
-                    "IndoorMap": "ultimate_{{Coop Floor}}_UltimateCoop",
+                    "IndoorMap": "ultimate_Clean_UltimateCoop",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Coop"
+                    ],
+                    "IndoorItems": [],
+                    "IndoorItemMoves": [],
+                    "CustomFields": null
+                }
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "When": {
+                "Barn Floor": "Cozy"
+            },
+            "Entries": {
+                "{{ModId}}_UltimateBarn": {
+                    "ID": "{{i18n:building.ultimate-barn.name}}",
+                    "Name": "{{i18n:building.ultimate-barn.name}}",
+                    "Description": "{{i18n:building.ultimate-barn.description}}",
+                    "Texture": "Buildings\\SVE_PremiumBarn",
+                    "Skins": [],
+                    "DrawShadow": true,
+                    "MagicalConstruction": false,
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 11,
+                        "Y": 4
+                    },
+                    "SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 176,
+                        "Height": 144
+                    },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
+					"FadeWhenBehind": true,
+					"BuildCondition": null,
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+                    "BuildDays": 3,
+                    "BuildCost": 500000,
+                    "BuildMaterials": [
+                        {
+                            "ItemId": "(O)390",
+                            "Amount": 900
+                        },
+                        {
+                            "ItemId": "(O)709",
+                            "Amount": 450
+                        },
+                        {
+                            "ItemId": "(O)335",
+                            "Amount": 30
+                        }
+                    ],
+                    "BuildMenuDrawOffset": {
+                        "X": 0,
+                        "Y": 5
+                    },
+                    "HumanDoor": {
+                        "X": 1,
+                        "Y": 3
+                    },
+                    "AnimalDoor": {
+                        "X": 4,
+                        "Y": 3,
+                        "Width": 3,
+                        "Height": 1
+                    },
+					"AnimalDoorOpenDuration": 0.75,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.6,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
+					    {
+                            "Id": "UltCB_Default_Overlay",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 98,
+                              "Y": 144,
+                              "Width": 44,
+                              "Height": 32
+                              },
+							"DrawPosition": "66, 83",
+                            "DrawInBackground": false
+						},
+						{
+                            "Id": "UltCB_Default_AnimalDoor",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 2,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+							"DrawInBackground": false,
+							"SortTileOffset": 0.02,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -24
+                            }
+                        },
+                        {
+                            "Id": "UltCB_Default_AnimalDoor_Open",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 50,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+                            "DrawInBackground": false,
+							"SortTileOffset": 1.0,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+							  "X": 0,
+							  "Y": 0
+                            }
+						}
+                    ],
+                    "IndoorMap": "ultimate_Cozy_UltimateBarn",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Barn"
+                    ],
+					"AllowAnimalPregnancy": true,
+                    "IndoorItems": [],
+                    "IndoorItemMoves": [],
+                    "CustomFields": null
+                }
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "When": {
+                "Barn Floor": "Cozy"
+            },
+            "Entries": {
+                "{{ModId}}_UltimateCoop": {
+                    "ID": "{{i18n:building.ultimate-coop.name}}",
+                    "Name": "{{i18n:building.ultimate-coop.name}}",
+                    "Description": "{{i18n:building.ultimate-coop.description}}",
+                    "Texture": "Buildings\\SVE_PremiumCoop",
+                    "Skins": [],
+                    "DrawShadow": true,
+                    "MagicalConstruction": false,
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 9,
+                        "Y": 4
+                    },
+					"FadeWhenBehind": true,
+					"SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 144,
+                        "Height": 144
+                    },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": "2.5",
+					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+					"AdditionalPlacementTiles": null,
+                    "BuildingType": null,
+					"BuildCondition": null,
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+            		"BuildDays": 3,
+                    "BuildCost": 400000,
+                    "BuildMaterials": [
+                        {
+                            "ItemId": "(O)390",
+                            "Amount": 700
+                        },
+                        {
+                            "ItemId": "(O)709",
+                            "Amount": 300
+                        },
+                        {
+                            "ItemId": "(O)335",
+                            "Amount": 20
+                        }
+                    ],
+                    "BuildMenuDrawOffset": {
+                		"X": 0,
+                		"Y": 0
+					},
+            		"HumanDoor": {
+                		"X": 7,
+                		"Y": 2
+		    		},
+            		"AnimalDoor": {
+                		"X": 2,
+                		"Y": 3,
+                		"Width": 2,
+                		"Height": 1
+            		},
+					"AnimalDoorOpenDuration": 0.3125,
+					"AnimalDoorOpenSound": "doorCreak",
+					"AnimalDoorCloseDuration": 0.3125,
+					"AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
+					    {
+                            "Id": "UltCB_Default_Overlay",
+							"Texture": null,
+                            "SourceRect": {
+                              	"X": 90,
+                              	"Y": 146,
+                              	"Width": 40,    
+                              	"Height": 12
+                            },
+							"DrawPosition": "28, 116",
+                            "DrawInBackground": false
+						},
+					    {
+                            "Id": "UltCB_Default_AnimalDoor",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 0,
+                                "Y": 144,
+                                "Width": 40,
+                                "Height": 16
+                            },
+                            "DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+						    "SortTileOffset": 0.02,
+						    "OnlyDrawIfChestHasContents": null,
+						    "FrameDuration": 90,
+						    "FrameCount": 1,
+						    "FramesPerRow": -1,
+						    "AnimalDoorOffset": {
+							    "X": 0,
+							    "Y": -12
+                            }
+					    },
+					    {
+                            "Id": "UltCB_Default_AnimalDoor_Open",
+							"Texture": null,
+                            "SourceRect": {
+                            	"X": 48,
+                            	"Y": 144,
+                            	"Width": 40,
+                            	"Height": 16
+                            },
+							"DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+							"SortTileOffset": 1.0,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+								"X": 0,
+								"Y": 0
+                            }
+						}
+                    ],
+                    "IndoorMap": "ultimate_Cozy_UltimateCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [

@@ -63,7 +63,6 @@ namespace UltimateCoopAndBarn
 
             cp.RegisterToken(ModManifest, "UltimateMode", GetUltimateMode);       
         }
-
         private IEnumerable<string> GetUltimateMode()
         {
             if (!Context.IsWorldReady)
@@ -388,16 +387,12 @@ namespace UltimateCoopAndBarn
             RemoveCustomlights(e.OldLocation);
 
             if (e.NewLocation is AnimalHouse)
-            {
+            {                
                 Utility.ForEachBuilding(building =>
                 {
                     if (building.GetIndoors() == e.NewLocation &&
                         building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                     {
-                        Helper.GameContent.InvalidateCache(e.NewLocation.mapPath.Value);
-                        e.NewLocation.reloadMap();
-                        building.updateInteriorWarps(e.NewLocation);
-
                         bool vppActive = IsVppOvercrowdingActive();
                         building.modData.TryGetValue(VppItemKey, out string lastVppState);
                         string targetVppState = vppActive ? "VPP" : "Base";
@@ -478,13 +473,6 @@ namespace UltimateCoopAndBarn
 
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
-            Helper.Events.GameLoop.UpdateTicked += DoSaveLoadedSetup;
-        }
-
-        private void DoSaveLoadedSetup(object? sender, UpdateTickedEventArgs e)
-        {
-            Helper.Events.GameLoop.UpdateTicked -= DoSaveLoadedSetup;
-
             Utility.ForEachBuilding(building =>
             {
                 if (building.indoors.Value is AnimalHouse indoors)
@@ -499,8 +487,8 @@ namespace UltimateCoopAndBarn
                     {
                         interior.reloadMap();
                         building.updateInteriorWarps(interior);
-
-                        if (interior is AnimalHouse animalHouse)
+                    
+                        if (building.GetIndoors() is AnimalHouse animalHouse)
                         {
                             foreach (var animal in animalHouse.animals.Values)
                             {
@@ -1171,26 +1159,24 @@ namespace UltimateCoopAndBarn
                 __result = true;
             }
         }
-        
 
         [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
         public static class BuildingAutoGrabberFix
         {
             public static void Postfix(Building __instance, bool forUpgrade)
             {
-                if (!forUpgrade)
-                    return;
-                if (__instance.buildingType.Value != UltimateCoop &&
-                    __instance.buildingType.Value != UltimateBarn)
+                if (!forUpgrade) return;
+                if (__instance.buildingType.Value != UltimateBarn &&
+                    __instance.buildingType.Value != UltimateBarn &&
+                    __instance.buildingType.Value != SuperDenseBarn &&
+                    __instance.buildingType.Value != SuperDenseCoop)
                     return;
 
                 foreach (var obj in __instance.indoors.Value.objects.Values)
                 {
                     if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
-                    {
                         obj.heldObject.Value = new Chest();
-                    }
-                }
+                }    
             }
         }
     }

@@ -478,6 +478,13 @@ namespace UltimateCoopAndBarn
 
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
+            Helper.Events.GameLoop.UpdateTicked += DoSaveLoadedSetup;
+        }
+
+        private void DoSaveLoadedSetup(object? sender, UpdateTickedEventArgs e)
+        {
+            Helper.Events.GameLoop.UpdateTicked -= DoSaveLoadedSetup;
+
             Utility.ForEachBuilding(building =>
             {
                 if (building.indoors.Value is AnimalHouse indoors)

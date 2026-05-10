@@ -95,7 +95,7 @@
             "FromFile": "data/includeVPP.json",
             "When":
             {
-        		"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT"
+        		"HasMod": "KediDili.VanillaPlusProfessions"
             }
         },
         {

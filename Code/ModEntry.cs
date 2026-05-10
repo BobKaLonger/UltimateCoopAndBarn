@@ -28,6 +28,8 @@ namespace UltimateCoopAndBarn
         internal const string UltimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
         internal const string UltimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
         private const string VppItemKey = "Ultimate/vppItems";
+        private const string OvercrowdingKey = "bobkalonger.UltCB_code/OvercrowdingActive";
+        private bool _overcrowdingActive = false;
         public override void Entry(IModHelper helper)
         {
             modInstance = this;
@@ -36,7 +38,20 @@ namespace UltimateCoopAndBarn
             if (mi != null)
                 cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
-            Helper.Events.GameLoop.ReturnedToTitle += (s, e) =>
+            bool hasVPP = Helper.ModRegistry.IsLoaded("KediDili.VanillaPlusProfessions");
+            bool hasEMP = Helper.ModRegistry.IsLoaded("Esca.EMP");
+
+            if (hasVPP && !hasEMP)
+            {
+                Monitor.Log(
+                    "Vanilla Plus Professions is installed, but the Overcrowding integration requires " +
+                    "Esca's Modding Plugins (EMP) to also be installed. " +
+                    "Without it, Ultimate buildings will cap at 48 animals instead of 64.",
+                    LogLevel.Warn
+                );
+            }
+
+            helper.Events.GameLoop.ReturnedToTitle += (s, e) =>
             {
                 _cachedUpgradeConfig = null;
                 _lastMode = null;
@@ -45,6 +60,7 @@ namespace UltimateCoopAndBarn
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.GameLoop.DayStarted += OnDayStarted;
             helper.Events.Player.Warped += PlayerOnWarped;
+            helper.Events.Display.MenuChanged += OnMenuChanged;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
@@ -61,7 +77,8 @@ namespace UltimateCoopAndBarn
                 return;
             }
 
-            cp.RegisterToken(ModManifest, "UltimateMode", GetUltimateMode);       
+            cp.RegisterToken(ModManifest, "UltimateMode", GetUltimateMode);
+            cp.RegisterToken(ModManifest, "OvercrowdingActive", () => new[] { _overcrowdingActive ? "true" : "false" });
         }
         private IEnumerable<string> GetUltimateMode()
         {
@@ -92,10 +109,10 @@ namespace UltimateCoopAndBarn
 
                 bool validSelection = manual switch
                 {
-                    "SVE"  => Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"),
+                    "SVE" => Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"),
                     "Giga" => Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"),
                     "Mega" => Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn") || Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"),
-                    _      => false
+                    _ => false
                 };
 
                 if (validSelection)
@@ -144,6 +161,21 @@ namespace UltimateCoopAndBarn
             return "Vanilla";
         }
 
+        private void UpdateOvercrowdingState()
+        {
+            bool current = IsVppOvercrowdingActive();
+            if (current == _overcrowdingActive) return;
+            _overcrowdingActive = current;
+            Game1.player.modData[OvercrowdingKey] = current ? "true" : "false";
+            Helper.GameContent.InvalidateCache("Data/Buildings");
+        }
+
+        private void OnMenuChanged(object? sender, MenuChangedEventArgs e)
+        {
+            if (e.NewMenu == null && e.OldMenu != null)
+                UpdateOvercrowdingState();
+        }
+
         private bool IsVppOvercrowdingActive()
         {
             if (!Context.IsWorldReady) return false;
@@ -186,7 +218,7 @@ namespace UltimateCoopAndBarn
                 .Where(p => excludedIds == null || !excludedIds.Contains(p.Value.QualifiedItemId))
                 .OrderBy(p => xShift > 0 ? -p.Key.X : p.Key.X)
                 .ToList();
-            
+
             foreach (var (tile, obj) in toMove)
             {
                 Vector2 dest = new Vector2(tile.X + xShift, tile.Y);
@@ -262,7 +294,7 @@ namespace UltimateCoopAndBarn
                     .Where(p => p.Value.QualifiedItemId != "(O)178")
                     .ToList();
 
-                    foreach (var (tile, obj) in edgeItems)
+                foreach (var (tile, obj) in edgeItems)
                 {
                     Vector2 dest = LandingPadRect(interior, landingPad);
                     interior.removeObject(tile, false);
@@ -291,7 +323,7 @@ namespace UltimateCoopAndBarn
             new Vector2(2, 14),
             new Vector2(2, 22),
             new Vector2(2, 30),
-            new Vector2(2, 38)            
+            new Vector2(2, 38)
         };
 
         private static void CoopItemMovestoVPP(GameLocation interior)
@@ -341,7 +373,7 @@ namespace UltimateCoopAndBarn
                     .Where(p => !excluded.Contains(p.Value.QualifiedItemId))
                     .ToList();
 
-                    foreach (var (tile, obj) in edgeItems)
+                foreach (var (tile, obj) in edgeItems)
                 {
                     Vector2 dest = LandingPadRect(interior, landingPad);
                     interior.removeObject(tile, false);
@@ -384,13 +416,13 @@ namespace UltimateCoopAndBarn
             RemoveCustomlights(e.OldLocation);
 
             if (e.NewLocation is AnimalHouse)
-            {                
+            {
                 Utility.ForEachBuilding(building =>
                 {
                     if (building.GetIndoors() == e.NewLocation &&
                         building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                     {
-                        bool vppActive = IsVppOvercrowdingActive();
+                        bool vppActive = _overcrowdingActive;
                         building.modData.TryGetValue(VppItemKey, out string lastVppState);
                         string targetVppState = vppActive ? "VPP" : "Base";
 
@@ -439,7 +471,7 @@ namespace UltimateCoopAndBarn
                     var ultimateLightPCP = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var lp = new LightSource($"{UltimateCP}PremiumCoopLight_patch_{b.tileX.Value}_{b.tileY.Value}", 4, ultimateLightPCP.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lp.Id, lp);
-                }                
+                }
             }
         }
 
@@ -470,6 +502,10 @@ namespace UltimateCoopAndBarn
 
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
+            if (!Game1.player.modData.ContainsKey(OvercrowdingKey))
+                Game1.player.modData[OvercrowdingKey] = "false";
+            _overcrowdingActive = Game1.player.modData[OvercrowdingKey] == "true";
+
             Utility.ForEachBuilding(building =>
             {
                 if (building.indoors.Value is AnimalHouse indoors)
@@ -478,7 +514,7 @@ namespace UltimateCoopAndBarn
                 }
 
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
-                {   
+                {
                     if (building.GetIndoors() is AnimalHouse animalHouse)
                     {
                         foreach (var animal in animalHouse.animals.Values)
@@ -487,7 +523,7 @@ namespace UltimateCoopAndBarn
                                 animal.currentLocation = animalHouse;
                         }
                     }
-                    
+
                 }
                 return true;
             });
@@ -495,7 +531,8 @@ namespace UltimateCoopAndBarn
 
         private void OnDayStarted(object? sender, DayStartedEventArgs e)
         {
-            bool vppActive = IsVppOvercrowdingActive();
+            UpdateOvercrowdingState();
+            bool vppActive = _overcrowdingActive;
 
             Utility.ForEachBuilding(building =>
             {
@@ -513,7 +550,7 @@ namespace UltimateCoopAndBarn
                 string upgradeKey = $"{ModManifest.UniqueID}/buildingKey";
                 string currentLevel = building.buildingType.Value;
                 building.modData.TryGetValue(upgradeKey, out string lastMovedLevel);
-                
+
                 if (lastMovedLevel != currentLevel)
                 {
                     if (interior is AnimalHouse animalHouse)
@@ -542,7 +579,7 @@ namespace UltimateCoopAndBarn
                     building.modData[VppItemKey] = vppActive ? "VPP" : "Base";
                     return true;
                 }
-                
+
                 building.modData.TryGetValue(VppItemKey, out string lastVppState);
                 string targetVppState = vppActive ? "VPP" : "Base";
 
@@ -577,7 +614,7 @@ namespace UltimateCoopAndBarn
                     {
                         if (Math.Abs(dx) != radius && Math.Abs(dy) != radius)
                             continue;
-                        
+
                         Vector2 tile = new Vector2(center.X + dx, center.Y + dy);
                         if (location.objects.TryGetValue(tile, out StardewValley.Object obj) && obj.QualifiedItemId == qualifiedId)
                         {
@@ -609,7 +646,7 @@ namespace UltimateCoopAndBarn
         private static void BarnItemMoves(GameLocation interior)
         {
             if (interior.map == null) return;
-            
+
             var namedDestinations = new Dictionary<string, Vector2>
             {
                 { "(BC)99",  new Vector2(26, 19) },
@@ -695,8 +732,8 @@ namespace UltimateCoopAndBarn
             var barnItemMoves = interior.objects.Pairs
                 .Where(p => !excludedIds.Contains(p.Value.QualifiedItemId))
                 .ToList();
-                
-            
+
+
             foreach (var pair in barnItemMoves)
             {
                 Vector2 dest = LandingPadRect(interior, landingPad);
@@ -713,7 +750,7 @@ namespace UltimateCoopAndBarn
             foreach (var (tile, _) in extraFeeders)
                 interior.removeObject(tile, false);
         }
-            
+
         private static void CoopItemMoves(GameLocation interior)
         {
             if (interior.map == null) return;
@@ -858,7 +895,7 @@ namespace UltimateCoopAndBarn
                 .Where(f => f.tile != correctFeederTile)
                 .ToList();
             foreach (var (tile, _) in extraFeeders)
-                interior.removeObject(tile, false); 
+                interior.removeObject(tile, false);
         }
 
         [HarmonyPatch(typeof(NPC), "updateConstructionAnimation")]
@@ -915,7 +952,7 @@ namespace UltimateCoopAndBarn
             {
                 if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop or UltimatePremiumBarn or UltimatePremiumCoop))
                     return;
-                
+
 
                 string upgradeKey = $"{modInstance!.ModManifest.UniqueID}/buildingKey";
                 string currentLevel = __instance.buildingType.Value;
@@ -947,7 +984,7 @@ namespace UltimateCoopAndBarn
                         else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
                             CoopItemMovestoVPP(interior);
                     }
-                    
+
                     if (interior is AnimalHouse animalHouse)
                         modInstance!.MakeIncubatorsMoveable(animalHouse);
 
@@ -964,7 +1001,7 @@ namespace UltimateCoopAndBarn
             {
                 if (__result == null)
                     return;
-                
+
                 if (__instance.upgradeName.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
@@ -1121,7 +1158,7 @@ namespace UltimateCoopAndBarn
             {
                 if (__instance.buildingType.Value != UltimateCoop)
                     return;
-                if (interior == null || interior.warps.Count <2)
+                if (interior == null || interior.warps.Count < 2)
                     return;
 
                 var w = interior.warps[1];
@@ -1146,8 +1183,8 @@ namespace UltimateCoopAndBarn
                     toCheck = UltimateBarn;
                 }
 
-            if (toCheck != null && location.getNumberBuildingsConstructed(toCheck) > 0)
-                __result = true;
+                if (toCheck != null && location.getNumberBuildingsConstructed(toCheck) > 0)
+                    __result = true;
             }
         }
 
@@ -1167,7 +1204,7 @@ namespace UltimateCoopAndBarn
                 {
                     if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
                         obj.heldObject.Value = new Chest();
-                }    
+                }
             }
         }
     }

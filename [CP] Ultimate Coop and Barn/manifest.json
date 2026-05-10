@@ -1,7 +1,7 @@
 {
 	"Name": "Ultimate Coop and Barn",
 	"Author": "bobkalonger",
-	"Version": "1.8.6",
+	"Version": "1.8.8",
 	"Description": "Adds a new upgrade level to coops and barns, increasing the animal limit to 48!",
 	"UniqueID": "bobkalonger.UltimateCoopAndBarnCP",
 	"MinimumApiVersion": "4.4.0",
@@ -24,11 +24,6 @@
 		{
 			"UniqueID": "bobkalonger.UnlimitedIncubatorHatches",
 			"MinimumVersion": "1.0.1",
-			"IsRequired": true
-		},
-		{
-			"UniqueID": "Spiderbuttons.CMCT",
-			"MinimumVersion": "1.1.2",
 			"IsRequired": true
 		},
 		{

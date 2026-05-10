@@ -13,9 +13,7 @@
 				"Warp": "20 47 Farm 1 1 52 47 Farm 1 1"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -32,9 +30,7 @@
 				"Warp": "20 47 Farm 1 1 52 47 Farm 1 1"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -51,9 +47,7 @@
 				"Warp": "48 41 Farm 1 1 47 9 Farm 1 1"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -70,9 +64,7 @@
 				"Warp": "48 41 Farm 1 1 47 9 Farm 1 1"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -88,9 +80,7 @@
 				"ProduceArea": "26 21 21 24"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -106,9 +96,7 @@
 				"ProduceArea": "26 21 21 24"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -124,9 +112,7 @@
 				"ProduceArea": "25 7 20 36"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		},
@@ -142,9 +128,7 @@
 				"ProduceArea": "25 7 20 36"
 			},
 			"When": {
-				"HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-				"Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-				"Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+				"bobkalonger.UltCB_code/OvercrowdingActive": "true"
 			},
 			"Update": "OnLocationChange"
 		}

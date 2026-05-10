@@ -1,7 +1,7 @@
 {
     "Name": "Ultimate Coop and Barn",
     "Author": "bobkalonger",
-    "Version": "1.8.6",
+    "Version": "1.8.8",
     "Description": "Code for Ultimate Coop and Barn",
     "UniqueID": "bobkalonger.UltCB_code",
     "EntryDll": "UltimateCoopAndBarn.dll",

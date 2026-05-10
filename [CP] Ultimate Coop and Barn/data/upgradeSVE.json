@@ -554,9 +554,7 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "When": {
-                "HasMod": "KediDili.VanillaPlusProfessions, Esca.EMP, Spiderbuttons.CMCT",
-                "Spiderbuttons.CMCT/Config: KediDili.VPPData.CP, EnableOvercrowdingEdits": "true",
-                "Esca.EMP/GameStateQuery: KediDili.VanillaPlusProfessions_PlayerHasTalent Any Overcrowding": "true"
+                "bobkalonger.UltCB_code/OvercrowdingActive": "true"
             },
             "Fields": {
                 "{{ModId}}_UltimateBarn": {

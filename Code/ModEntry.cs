@@ -503,7 +503,7 @@ namespace UltimateCoopAndBarn
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
             if (!Game1.player.modData.ContainsKey(OvercrowdingKey))
-                Game1.player.modData[OvercrowdingKey] = "false";
+                Game1.player.modData[OvercrowdingKey] = IsVppOvercrowdingActive() ? "true" : "false";
             _overcrowdingActive = Game1.player.modData[OvercrowdingKey] == "true";
 
             Utility.ForEachBuilding(building =>

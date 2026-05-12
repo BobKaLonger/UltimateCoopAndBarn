@@ -190,6 +190,44 @@ namespace UltimateCoopAndBarn
                             }
                             building.modData[VppItemKey] = targetVppState;
                         }
+
+                        var playerTile = ((int)Game1.player.Tile.X, (int)Game1.player.Tile.Y);
+
+                        if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
+                        {
+                            var staleToCorrect = vppActive
+                                ? new Dictionary<(int, int), (int, int)>
+                                {
+                                    { (15, 47), (20, 47) },
+                                    { (47, 47), (52, 47) }
+                                }
+                                : new Dictionary<(int, int), (int, int)>
+                                {
+                                    { (20, 47), (15, 47) },
+                                    { (52, 47), (47, 47) }
+                                };
+
+                            if (staleToCorrect.TryGetValue(playerTile, out var correct))
+                                Game1.player.Position = new Vector2(correct.Item1 * 64, correct.Item2 * 64);
+                        }
+                        else if (building.buildingType.Value is UltimateCoop or SuperDenseCoop)
+                        {
+                            var staleToCorrect = vppActive
+                                ? new Dictionary<(int, int), (int, int)>
+                                {
+                                    { (38, 41), (48, 41) },
+                                    { (37, 9),  (47, 9)  }
+                                }
+                                : new Dictionary<(int, int), (int, int)>
+                                {
+                                    { (48, 41), (38, 41) },
+                                    { (47, 9),  (37, 9)  }
+                                };
+
+                            if (staleToCorrect.TryGetValue(playerTile, out var correct))
+                                Game1.player.Position = new Vector2(correct.Item1 * 64, correct.Item2 * 64);
+                        }
+
                         return false;
                     }
                     return true;

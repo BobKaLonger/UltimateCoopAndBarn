@@ -310,15 +310,20 @@ namespace UltimateCoopAndBarn
 
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                 {
-                    if (building.GetIndoors() is AnimalHouse animalHouse)
+                    var interior = building.GetIndoors();
+                    if (interior != null)
                     {
-                        foreach (var animal in animalHouse.animals.Values)
+                        building.updateInteriorWarps(interior);
+
+                        if (building.GetIndoors() is AnimalHouse animalHouse)
                         {
-                            if (animal.currentLocation != animalHouse)
-                                animal.currentLocation = animalHouse;
+                            foreach (var animal in animalHouse.animals.Values)
+                            {
+                                if (animal.currentLocation != animalHouse)
+                                    animal.currentLocation = animalHouse;
+                            }
                         }
                     }
-
                 }
                 return true;
             });

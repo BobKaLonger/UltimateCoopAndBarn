@@ -51,6 +51,8 @@ namespace UltimateCoopAndBarn
             helper.Events.GameLoop.ReturnedToTitle += (s, e) =>
             {
                 _cachedUpgradeConfig = null;
+                _cachedBarnFloorConfig = null;
+                _cachedCoopFloorConfig = null;
                 _lastMode = null;
             };
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
@@ -177,8 +179,6 @@ namespace UltimateCoopAndBarn
                         string targetVppState = vppActive ? "VPP" : "Base";
                         bool stateJustChanged = lastVppState != targetVppState;
 
-                        Monitor.Log($"[DIAG] PlayerOnWarped: vppActive={vppActive} lastVppState='{lastVppState}' targetVppState='{targetVppState}' stateJustChanged={stateJustChanged} playerTile={((int)Game1.player.Tile.X, (int)Game1.player.Tile.Y)}", LogLevel.Debug);
-
                         if (stateJustChanged)
                         {
                             if (building.buildingType.Value is UltimateBarn or SuperDenseBarn)
@@ -303,19 +303,17 @@ namespace UltimateCoopAndBarn
 
             Utility.ForEachBuilding(building =>
             {
-                if (building.indoors.Value is AnimalHouse indoors)
-                {
-                    MakeIncubatorsMoveable(indoors);
-                }
-
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                 {
+                    if (building.indoors.Value is AnimalHouse indoors)
+                        MakeIncubatorsMoveable(indoors);
+
                     var interior = building.GetIndoors();
                     if (interior != null)
                     {
                         building.updateInteriorWarps(interior);
 
-                        if (building.GetIndoors() is AnimalHouse animalHouse)
+                        if (interior is AnimalHouse animalHouse)
                         {
                             foreach (var animal in animalHouse.animals.Values)
                             {
@@ -329,6 +327,51 @@ namespace UltimateCoopAndBarn
             });
         }
 
+        private string? _cachedBarnFloorConfig = null;
+        private string GetBarnFloorConfig()
+        {
+            if (_cachedBarnFloorConfig != null) return _cachedBarnFloorConfig;
+            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
+            if (config != null && config.TryGetValue("Barn Floor", out string? value))
+                _cachedBarnFloorConfig = value;
+            return _cachedBarnFloorConfig ?? "Clean";
+        }
+
+        private string? _cachedCoopFloorConfig = null;
+        private string GetCoopFloorConfig()
+        {
+            if (_cachedCoopFloorConfig != null) return _cachedCoopFloorConfig;
+            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
+            if (config != null && config.TryGetValue("Coop Floor", out string? value))
+                _cachedCoopFloorConfig = value;
+            return _cachedCoopFloorConfig ?? "Clean";
+        }
+
+        [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
+        public static class BuildingInitializeIndoorPrefix
+        {
+            public static void Prefix(Building __instance)
+            {
+                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
+                    return;
+
+                var interior = __instance.indoors.Value;
+                if (interior == null) return;
+
+                if (string.IsNullOrEmpty(interior.mapPath.Value) || interior.mapPath.Value.Contains("{{"))
+                {
+                    interior.mapPath.Value = __instance.buildingType.Value switch
+                    {
+                        UltimateBarn => $"Maps/ultimate_{modInstance!.GetBarnFloorConfig()}_UltimateBarn",
+                        SuperDenseBarn => $"Maps/ultimate_{modInstance!.GetBarnFloorConfig()}_SuperDenseBarn",
+                        UltimateCoop => $"Maps/ultimate_{modInstance!.GetCoopFloorConfig()}_UltimateCoop",
+                        SuperDenseCoop => $"Maps/ultimate_{modInstance!.GetCoopFloorConfig()}_SuperDenseCoop",
+                        _ => interior.mapPath.Value
+                    };
+                }
+            }
+        }
+
         private void OnDayStarted(object? sender, DayStartedEventArgs e)
         {
             UpdateOvercrowdingState();
@@ -336,11 +379,11 @@ namespace UltimateCoopAndBarn
 
             Utility.ForEachBuilding(building =>
             {
-                if (building.indoors.Value is AnimalHouse indoors)
-                    MakeIncubatorsMoveable(indoors);
-
                 if (building.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return true;
+
+                if (building.indoors.Value is AnimalHouse indoors)
+                    MakeIncubatorsMoveable(indoors);
 
                 var interior = building.GetIndoors();
 
@@ -709,7 +752,7 @@ namespace UltimateCoopAndBarn
         {
             public static void Postfix(Building __instance)
             {
-                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop or UltimatePremiumBarn or UltimatePremiumCoop))
+                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
 

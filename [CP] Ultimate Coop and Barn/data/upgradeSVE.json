@@ -142,7 +142,7 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "When": {
-                "Barn Floor": "Clean"
+                "Coop Floor": "Clean"
             },
             "Entries": {
                 "{{ModId}}_UltimateCoop": {
@@ -417,7 +417,7 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "When": {
-                "Barn Floor": "Cozy"
+                "Coop Floor": "Cozy"
             },
             "Entries": {
                 "{{ModId}}_UltimateCoop": {

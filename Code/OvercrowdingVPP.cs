@@ -25,13 +25,16 @@ namespace UltimateCoopAndBarn
             Game1.player.modData[OvercrowdingKey] = current ? "true" : "false";
             Helper.GameContent.InvalidateCache("Data/Buildings");
 
+            int capacity = current ? 64 : 48;
+
             Utility.ForEachBuilding(building =>
             {
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                 {
                     var interior = building.GetIndoors();
-                    if (interior != null)
-                        building.updateInteriorWarps(interior);
+                    building.maxOccupants.Value = capacity;
+                    ((AnimalHouse)interior).animalLimit.Value = capacity;
+                    building.updateInteriorWarps(interior);
                 }
                 return true;
             });

@@ -304,26 +304,23 @@ namespace UltimateCoopAndBarn
 
             Helper.GameContent.InvalidateCache("Data/Buildings");
 
+            int capacity = _overcrowdingActive ? 64 : 48;
+
             Utility.ForEachBuilding(building =>
             {
                 if (building.buildingType.Value is UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop)
                 {
-                    if (building.indoors.Value is AnimalHouse indoors)
-                        MakeIncubatorsMoveable(indoors);
-
                     var interior = building.GetIndoors();
-                    if (interior != null)
-                    {
-                        building.updateInteriorWarps(interior);
+                    building.maxOccupants.Value = capacity;
+                    ((AnimalHouse)building.GetIndoors()).animalLimit.Value = capacity;
 
-                        if (interior is AnimalHouse animalHouse)
-                        {
-                            foreach (var animal in animalHouse.animals.Values)
-                            {
-                                if (animal.currentLocation != animalHouse)
-                                    animal.currentLocation = animalHouse;
-                            }
-                        }
+                    MakeIncubatorsMoveable((AnimalHouse)interior);
+                    building.updateInteriorWarps(interior);
+
+                    foreach (var animal in ((AnimalHouse)interior).animals.Values)
+                    {
+                        if (animal.currentLocation != interior)
+                            animal.currentLocation = interior;
                     }
                 }
                 return true;
@@ -463,17 +460,11 @@ namespace UltimateCoopAndBarn
 
                 foreach (var id in new[] { $"{UltimateCP}UltimateBarn", $"{UltimateCP}SuperDenseBarn" })
                     if (data.TryGetValue(id, out var barn))
-                    {
                         barn.Description = barnDesc;
-                        if (overcrowding) barn.MaxOccupants = 64;
-                    }
 
                 foreach (var id in new[] { $"{UltimateCP}UltimateCoop", $"{UltimateCP}SuperDenseCoop" })
                     if (data.TryGetValue(id, out var coop))
-                    {
-                        coop.Description = barnDesc;
-                        if (overcrowding) coop.MaxOccupants = 64;
-                    }
+                        coop.Description = coopDesc;
             }, AssetEditPriority.Late);
         }
 
@@ -566,7 +557,6 @@ namespace UltimateCoopAndBarn
             var barnItemMoves = interior.objects.Pairs
                 .Where(p => !excludedIds.Contains(p.Value.QualifiedItemId))
                 .ToList();
-
 
             foreach (var pair in barnItemMoves)
             {
@@ -818,6 +808,9 @@ namespace UltimateCoopAndBarn
                         else if (__instance.buildingType.Value is UltimateCoop or SuperDenseCoop)
                             CoopItemMovestoVPP(interior);
                     }
+
+                    __instance.maxOccupants.Value = vppActive ? 64 : 48;
+                    ((AnimalHouse)interior).animalLimit.Value = vppActive ? 64 : 48;
 
                     if (interior is AnimalHouse animalHouse)
                         modInstance!.MakeIncubatorsMoveable(animalHouse);

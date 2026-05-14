@@ -3,19 +3,19 @@
 	"ConfigSchema": {
         "Barn Floor": {
             "AllowValues": "Clean, Cozy",
-            "Description": "{{i18n: config.barn-floor.description}}",
+            "Description": "Houses 48 barn-dwelling animals.",
             "Default": "Clean",
             "Section": "Indoor Appearance"
         },
         "Coop Floor": {
             "AllowValues": "Clean, Cozy",
-            "Description": "{{i18n: config.coop-floor.description}}",
+            "Description": "Houses 48 coop-dwelling animals.",
             "Default": "Clean",
             "Section": "Indoor Appearance"
         },
         "Ultimate Building Upgrade": {
             "AllowValues": "Auto, Giga, Mega",
-            "Description": "{{i18n: config.ultimate-building-upgrade.description}}",
+            "Description": "Choose which buildings to upgrade. For SVE or Vanilla, select Auto.",
             "Default": "Auto",
             "Section": "Upgrade Path"
         }

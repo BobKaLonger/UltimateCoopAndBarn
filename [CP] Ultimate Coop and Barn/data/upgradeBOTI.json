@@ -596,11 +596,9 @@
             },
             "Fields": {
                 "{{ModId}}_SuperDenseBarn": {
-                    "Description": "{{i18n: building.ultimate-barn.description.overcrowding}}",
                     "MaxOccupants": 64
                 },
                 "{{ModId}}_SuperDenseCoop": {
-                    "Description": "{{i18n: building.ultimate-coop.description.overcrowding}}",
                     "MaxOccupants": 64
                 }
             }

@@ -60,6 +60,7 @@ namespace UltimateCoopAndBarn
             helper.Events.GameLoop.DayStarted += OnDayStarted;
             helper.Events.Player.Warped += PlayerOnWarped;
             helper.Events.Display.MenuChanged += OnMenuChanged;
+            helper.Events.Content.AssetRequested += OnAssetRequested;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
@@ -443,6 +444,29 @@ namespace UltimateCoopAndBarn
 
                 return true;
             });
+        }
+
+        private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+        {
+            if (!e.NameWithoutLocale.IsEquivalentTo("Data/Buildings")) return;
+
+            e.Edit(asset =>
+            {
+                var data = asset.AsDictionary<string, BuildingData>().Data;
+                bool overcrowding = _overcrowdingActive;
+                int capacity = overcrowding ? 64 : 48;
+
+                string barnDesc = Helper.Translation.Get("building.ultimate-barn.description", new { capacity });
+                string coopDesc = Helper.Translation.Get("building.ultimate-coop.description", new { capacity });
+
+                foreach (var id in new[] { $"{ModManifest.UniqueID}_UltimateBarn", $"{ModManifest.UniqueID}_SuperDenseBarn" })
+                    if (data.TryGetValue(id, out var barn))
+                        barn.Description = barnDesc;
+
+                foreach (var id in new[] { $"{ModManifest.UniqueID}_UltimateCoop", $"{ModManifest.UniqueID}_SuperDenseCoop" })
+                    if (data.TryGetValue(id, out var coop))
+                        coop.Description = coopDesc;
+            }, AssetEditPriority.Late);
         }
 
         private static void BarnItemMoves(GameLocation interior)

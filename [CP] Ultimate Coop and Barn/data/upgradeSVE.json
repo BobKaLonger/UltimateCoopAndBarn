@@ -558,11 +558,9 @@
             },
             "Fields": {
                 "{{ModId}}_UltimateBarn": {
-                    "Description": "{{i18n: building.ultimate-barn.description.overcrowding}}",
                     "MaxOccupants": 64
                 },
                 "{{ModId}}_UltimateCoop": {
-                    "Description": "{{i18n: building.ultimate-coop.description.overcrowding}}",
                     "MaxOccupants": 64
                 }
             }

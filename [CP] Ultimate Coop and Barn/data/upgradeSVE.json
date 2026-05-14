@@ -10,7 +10,6 @@
                 "{{ModId}}_UltimateBarn": {
                     "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -148,7 +147,6 @@
                 "{{ModId}}_UltimateCoop": {
                     "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
                     "DrawShadow": true,
@@ -285,7 +283,6 @@
                 "{{ModId}}_UltimateBarn": {
                     "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -423,7 +420,6 @@
                 "{{ModId}}_UltimateCoop": {
                     "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
                     "DrawShadow": true,

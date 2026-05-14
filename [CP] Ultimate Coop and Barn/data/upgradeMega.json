@@ -10,7 +10,6 @@
                 "{{ModId}}_SuperDenseBarn": {
                     "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -178,7 +177,6 @@
                 "{{ModId}}_SuperDenseCoop": {
                     "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,
@@ -304,7 +302,6 @@
                 "{{ModId}}_SuperDenseBarn": {
                     "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -472,7 +469,6 @@
                 "{{ModId}}_SuperDenseCoop": {
                     "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,

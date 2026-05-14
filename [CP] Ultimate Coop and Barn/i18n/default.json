@@ -1,12 +1,10 @@
 {
     "building.ultimate-barn.name": "Ultimate Barn",
-    "building.ultimate-barn.description": "Houses {{capacity}} barn-dwelling animals.",
     "config.barn-floor.name": "Barn Floor",
     "config.barn-floor.description": "Choose the interior for your barn.",
     "config.barn-floor.values.clean": "Clean",
     "config.barn-floor.values.cozy": "Cozy",
     "building.ultimate-coop.name": "Ultimate Coop",
-    "building.ultimate-coop.description": "Houses {{capacity}} coop-dwelling animals.",
     "config.coop-floor.name": "Coop Floor",
     "config.coop-floor.description": "Choose the interior for your coop.",
     "config.coop-floor.values.clean": "Clean",

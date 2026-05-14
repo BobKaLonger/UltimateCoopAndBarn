@@ -587,21 +587,6 @@
                     "CustomFields": null
                 }
             }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/Buildings",
-            "When": {
-                "bobkalonger.UltCB_code/OvercrowdingActive": "true"
-            },
-            "Fields": {
-                "{{ModId}}_SuperDenseBarn": {
-                    "MaxOccupants": 64
-                },
-                "{{ModId}}_SuperDenseCoop": {
-                    "MaxOccupants": 64
-                }
-            }
         }
     ]
 }

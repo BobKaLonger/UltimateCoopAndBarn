@@ -549,21 +549,6 @@
                     "CustomFields": null
                 }
             }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/Buildings",
-            "When": {
-                "bobkalonger.UltCB_code/OvercrowdingActive": "true"
-            },
-            "Fields": {
-                "{{ModId}}_UltimateBarn": {
-                    "MaxOccupants": 64
-                },
-                "{{ModId}}_UltimateCoop": {
-                    "MaxOccupants": 64
-                }
-            }
         }
     ]
 }

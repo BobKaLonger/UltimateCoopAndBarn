@@ -296,8 +296,37 @@ namespace UltimateCoopAndBarn
             }
         }
 
+        private void MigrateLegacyBuildingIds()
+        {
+            const string oldId = "bobkalonger.ultimatecoopnbarnCP";
+            const string newId = "bobkalonger.UltimateCoopAndBarnCP";
+
+            Utility.ForEachBuilding(building =>
+            {
+                if (building.buildingType.Value.Contains(oldId))
+                {
+                    string newType = building.buildingType.Value.Replace(oldId, newId);
+                    Monitor.Log($"Migrating building {building.buildingType.Value} → {newType}", LogLevel.Info);
+                    building.buildingType.Value = newType;
+                }
+                if (building.upgradeName.Value?.Contains(oldId) == true)
+                    building.upgradeName.Value = building.upgradeName.Value.Replace(oldId, newId);
+
+                foreach (var key in building.modData.Keys.Where(k => k.Contains(oldId)).ToList())
+                {
+                    string newKey = key.Replace(oldId, newId);
+                    building.modData[newKey] = building.modData[key];
+                    building.modData.Remove(key);
+                }
+
+                return true;
+            });
+        }
+
         private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
+            MigrateLegacyBuildingIds();
+
             if (!Game1.player.modData.ContainsKey(OvercrowdingKey))
                 Game1.player.modData[OvercrowdingKey] = IsVppOvercrowdingActive() ? "true" : "false";
             _overcrowdingActive = Game1.player.modData[OvercrowdingKey] == "true";

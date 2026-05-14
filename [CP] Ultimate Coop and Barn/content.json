@@ -3,19 +3,19 @@
 	"ConfigSchema": {
         "Barn Floor": {
             "AllowValues": "Clean, Cozy",
-            "Description": "Choose the interior for your barn.",
+            "Description": "{{i18n: config.barn-floor.description}}",
             "Default": "Clean",
             "Section": "Indoor Appearance"
         },
         "Coop Floor": {
             "AllowValues": "Clean, Cozy",
-            "Description": "Choose the interior for your coop.",
+            "Description": "{{i18n: config.coop-floor.description}}",
             "Default": "Clean",
             "Section": "Indoor Appearance"
         },
         "Ultimate Building Upgrade": {
             "AllowValues": "Auto, Giga, Mega",
-            "Description": "Choose which buildings to upgrade, for SVE or Vanilla please select AUTO!",
+            "Description": "{{i18n: config.ultimate-building-upgrade.description}}",
             "Default": "Auto",
             "Section": "Upgrade Path"
         }

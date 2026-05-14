@@ -1,8 +1,23 @@
 {
-    "building.ultimate-coop.name": "Ultimate Coop",
-    "building.ultimate-coop.description": "Houses 48 coop-dwelling animals.",
     "building.ultimate-barn.name": "Ultimate Barn",
     "building.ultimate-barn.description": "Houses 48 barn-dwelling animals.",
-    "config.ultimate-coop.name": "Ultimate Coop",
-    "config.ultimate-barn.name": "Ultimate Barn"
+    "building.ultimate-barn.description.overcrowding": "Houses 64 barn-dwelling animals.",
+    "config.barn-floor.name": "Barn Floor",
+    "config.barn-floor.description": "Choose the interior for your barn.",
+    "config.barn-floor.values.clean": "Clean",
+    "config.barn-floor.values.cozy": "Cozy",
+    "building.ultimate-coop.name": "Ultimate Coop",
+    "building.ultimate-coop.description": "Houses 48 coop-dwelling animals.",
+    "building.ultimate-coop.description.overcrowding": "Houses 64 coop-dwelling animals.",
+    "config.coop-floor.name": "Coop Floor",
+    "config.coop-floor.description": "Choose the interior for your coop.",
+    "config.coop-floor.values.clean": "Clean",
+    "config.coop-floor.values.cozy": "Cozy",
+    "config.ultimate-building-upgrade.name": "Ultimate Building Upgrade",
+    "config.ultimate-building-upgrade.description": "Choose which buildings to upgrade. For SVE or Vanilla, select Auto.",
+    "config.ultimate-building-upgrade.values.auto": "Auto",
+    "config.ultimate-building-upgrade.values.giga": "Giga",
+    "config.ultimate-building-upgrade.values.mega": "Mega",
+    "config.section.indoor-appearance.name": "Indoor Appearance",
+    "config.section.upgrade-path.name": "Upgrade Path"
 }

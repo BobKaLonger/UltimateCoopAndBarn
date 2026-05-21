@@ -1,6 +1,6 @@
 {
-	"Format": "2.9.0",
-	"ConfigSchema": {
+    "Format": "2.9.0",
+    "ConfigSchema": {
         "Barn Floor": {
             "AllowValues": "Clean, Cozy",
             "Description": "Houses 48 barn-dwelling animals.",
@@ -20,145 +20,151 @@
             "Section": "Upgrade Path"
         }
     },
-	
-	"Changes": [
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Clean_UltimateBarn",
-			"FromFile": "assets/clean_UltimateBarn.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Clean_UltimateCoop",
-			"FromFile": "assets/clean_UltimateCoop.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Cozy_UltimateBarn",
-			"FromFile": "assets/cozy_UltimateBarn.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Cozy_UltimateCoop",
-			"FromFile": "assets/cozy_UltimateCoop.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Clean_SuperDenseBarn",
-			"FromFile": "assets/clean_SuperDenseBarn.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Clean_SuperDenseCoop",
-			"FromFile": "assets/clean_SuperDenseCoop.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Cozy_SuperDenseBarn",
-			"FromFile": "assets/cozy_SuperDenseBarn.tmx"
-		},
-		{
-			"Action": "Load",
-			"Target": "Maps/ultimate_Cozy_SuperDenseCoop",
-			"FromFile": "assets/cozy_SuperDenseCoop.tmx"
-		},
-		{
-			"Action": "EditData",
-			"Target": "Data/PaintData",
-			"Entries": {
-				"{{ModId}}_UltimateBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
-			}
-		},
-		{
-			"Action": "EditData",
-			"Target": "Data/PaintData",
-			"Entries": {
-				"{{ModId}}_UltimateCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
-		    }
-	    },
-	    {
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Clean_UltimateBarn",
+            "FromFile": "assets/clean_UltimateBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Clean_UltimateCoop",
+            "FromFile": "assets/clean_UltimateCoop.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Cozy_UltimateBarn",
+            "FromFile": "assets/cozy_UltimateBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Cozy_UltimateCoop",
+            "FromFile": "assets/cozy_UltimateCoop.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Clean_SuperDenseBarn",
+            "FromFile": "assets/clean_SuperDenseBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Clean_SuperDenseCoop",
+            "FromFile": "assets/clean_SuperDenseCoop.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Cozy_SuperDenseBarn",
+            "FromFile": "assets/cozy_SuperDenseBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/ultimate_Cozy_SuperDenseCoop",
+            "FromFile": "assets/cozy_SuperDenseCoop.tmx"
+        },
+        {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "{{ModId}}_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+                "{{ModId}}_UltimateBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
             }
         },
         {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "{{ModId}}_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+                "{{ModId}}_UltimateCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
             }
         },
-		{
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+                "{{ModId}}_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+                "{{ModId}}_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+            }
+        },
+        {
             "Action": "Include",
             "FromFile": "data/includeVPP.json",
-            "When":
-            {
-        		"HasMod": "KediDili.VanillaPlusProfessions"
+            "When": {
+                "HasMod": "KediDili.VanillaPlusProfessions"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeSVE.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "SVE",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeBOTI.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "BOTI",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeGiga.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Giga",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeBoth.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Both",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeMega.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Mega",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeGiant.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Giant",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
             }
         },
         {
             "Action": "Include",
             "FromFile": "data/upgradeVanilla.json",
-            "When":
-            {
+            "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Vanilla",
-        		"HasMod": "bobkalonger.UltCB_code"
+                "HasMod": "bobkalonger.UltCB_code"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/FarmAnimals",
+            "When": {
+                "HasMod": "FlashShifter.StardewValleyExpandedCP"
+            },
+            "Fields": {
+                "FlashShifter.StardewValleyExpandedCP_Camel": {
+                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumBarn 1\" \"bobkalonger.UltimateCoopAndBarnCP_UltimateBarn 1\""
+                },
+                "FlashShifter.StardewValleyExpandedCP_Goose": {
+                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumCoop 1\" \"bobkalonger.UltimateCoopAndBarnCP_UltimateCoop 1\""
+                }
             }
         }
     ]

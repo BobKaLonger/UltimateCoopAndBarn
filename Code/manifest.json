@@ -1,12 +1,14 @@
 {
     "Name": "Ultimate Coop and Barn",
     "Author": "bobkalonger",
-    "Version": "1.8.15",
+    "Version": "1.8.16",
     "Description": "Code for Ultimate Coop and Barn",
     "UniqueID": "bobkalonger.UltCB_code",
     "EntryDll": "UltimateCoopAndBarn.dll",
     "MinimumApiVersion": "4.4.0",
-    "UpdateKeys": [ "Nexus:44285" ],
+    "UpdateKeys": [
+        "Nexus:44285"
+    ],
     "Dependencies": [
         {
             "UniqueID": "Pathoschild.ContentPatcher",

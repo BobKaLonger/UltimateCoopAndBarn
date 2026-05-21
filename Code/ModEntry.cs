@@ -25,8 +25,8 @@ namespace UltimateCoopAndBarn
         internal const string UltimateCoop = $"{UltimateCP}UltimateCoop";
         internal const string SuperDenseBarn = $"{UltimateCP}SuperDenseBarn";
         internal const string SuperDenseCoop = $"{UltimateCP}SuperDenseCoop";
-        internal const string UltimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
-        internal const string UltimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
+        internal const string PremiumCoopSVE = $"{SVExpandCP}PremiumCoop";
+        internal const string PremiumBarnSVE = $"{SVExpandCP}PremiumBarn";
         public override void Entry(IModHelper helper)
         {
             modInstance = this;
@@ -262,7 +262,7 @@ namespace UltimateCoopAndBarn
                     Game1.currentLightSources.Add(lc.Id, lc);
                 }
 
-                if (b.buildingType.Value == UltimatePremiumCoop)
+                if (b.buildingType.Value == PremiumCoopSVE)
                 {
                     var ultimateLightPCP = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var lp = new LightSource($"{UltimateCP}PremiumCoopLight_patch_{b.tileX.Value}_{b.tileY.Value}", 4, ultimateLightPCP.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
@@ -782,10 +782,10 @@ namespace UltimateCoopAndBarn
 
                 switch (building.buildingType.Value)
                 {
-                    case UltimatePremiumBarn:
+                    case PremiumBarnSVE:
                         __instance.setTilePosition(2, 6);
                         break;
-                    case UltimatePremiumCoop:
+                    case PremiumCoopSVE:
                         __instance.setTilePosition(27, 8);
                         __instance.flip = true;
                         break;
@@ -1030,16 +1030,16 @@ namespace UltimateCoopAndBarn
                 if (__result) return;
 
                 string? toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == UltimatePremiumCoop)
+                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == PremiumCoopSVE)
                 {
                     toCheck = UltimateCoop;
                 }
-                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == UltimatePremiumBarn)
+                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == PremiumBarnSVE)
                 {
                     toCheck = UltimateBarn;
                 }
 
-                if (toCheck != null && location.getNumberBuildingsConstructed(toCheck) > 0)
+                if (toCheck != null && Game1.locations.Any(loc => loc.getNumberBuildingsConstructed(toCheck) > 0))
                     __result = true;
             }
         }

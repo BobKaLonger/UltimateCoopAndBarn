@@ -160,10 +160,10 @@
             },
             "Fields": {
                 "FlashShifter.StardewValleyExpandedCP_Camel": {
-                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumBarn 1\" \"bobkalonger.UltimateCoopAndBarnCP_UltimateBarn 1\""
+                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumBarn 1\" \"BUILDINGS_CONSTRUCTED all bobkalonger.UltimateCoopAndBarnCP_UltimateBarn 1\""
                 },
                 "FlashShifter.StardewValleyExpandedCP_Goose": {
-                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumCoop 1\" \"bobkalonger.UltimateCoopAndBarnCP_UltimateCoop 1\""
+                    "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumCoop 1\" \"BUILDINGS_CONSTRUCTED all bobkalonger.UltimateCoopAndBarnCP_UltimateCoop 1\""
                 }
             }
         }

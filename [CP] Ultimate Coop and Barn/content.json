@@ -23,42 +23,42 @@
     "Changes": [
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Clean_UltimateBarn",
+            "Target": "Maps/Clean_UltimateBarn",
             "FromFile": "assets/clean_UltimateBarn.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Clean_UltimateCoop",
+            "Target": "Maps/Clean_UltimateCoop",
             "FromFile": "assets/clean_UltimateCoop.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Cozy_UltimateBarn",
+            "Target": "Maps/Cozy_UltimateBarn",
             "FromFile": "assets/cozy_UltimateBarn.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Cozy_UltimateCoop",
+            "Target": "Maps/Cozy_UltimateCoop",
             "FromFile": "assets/cozy_UltimateCoop.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Clean_SuperDenseBarn",
+            "Target": "Maps/Clean_SuperDenseBarn",
             "FromFile": "assets/clean_SuperDenseBarn.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Clean_SuperDenseCoop",
+            "Target": "Maps/Clean_SuperDenseCoop",
             "FromFile": "assets/clean_SuperDenseCoop.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Cozy_SuperDenseBarn",
+            "Target": "Maps/Cozy_SuperDenseBarn",
             "FromFile": "assets/cozy_SuperDenseBarn.tmx"
         },
         {
             "Action": "Load",
-            "Target": "Maps/ultimate_Cozy_SuperDenseCoop",
+            "Target": "Maps/Cozy_SuperDenseCoop",
             "FromFile": "assets/cozy_SuperDenseCoop.tmx"
         },
         {

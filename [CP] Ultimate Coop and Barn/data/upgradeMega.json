@@ -153,7 +153,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "ultimate_Clean_SuperDenseBarn",
+                    "IndoorMap": "Clean_SuperDenseBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -277,7 +277,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "ultimate_Clean_SuperDenseCoop",
+                    "IndoorMap": "Clean_SuperDenseCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -443,7 +443,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "ultimate_Cozy_SuperDenseBarn",
+                    "IndoorMap": "Cozy_SuperDenseBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -567,7 +567,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "ultimate_Cozy_SuperDenseCoop",
+                    "IndoorMap": "Cozy_SuperDenseCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [

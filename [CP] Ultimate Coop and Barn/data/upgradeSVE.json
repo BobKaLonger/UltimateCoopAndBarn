@@ -8,7 +8,6 @@
             },
             "Entries": {
                 "{{ModId}}_UltimateBarn": {
-                    "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
@@ -30,9 +29,9 @@
                     "CollisionMap": null,
                     "AdditionalPlacementTiles": null,
                     "BuildingType": null,
-					"FadeWhenBehind": true,
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+                    "FadeWhenBehind": true,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
                     "BuildDays": 3,
                     "BuildCost": 500000,
                     "BuildMaterials": [
@@ -63,66 +62,66 @@
                         "Width": 3,
                         "Height": 1
                     },
-					"AnimalDoorOpenDuration": 0.75,
+                    "AnimalDoorOpenDuration": 0.75,
                     "AnimalDoorOpenSound": "doorCreak",
                     "AnimalDoorCloseDuration": 0.6,
                     "AnimalDoorCloseSound": "doorCreakReverse",
-					"NonInstancedIndoorLocation": null,
-					"DrawLayers": [
-					    {
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
                             "Id": "UltCB_Default_Overlay",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 98,
-                              "Y": 144,
-                              "Width": 44,
-                              "Height": 32
-                              },
-							"DrawPosition": "66, 83",
+                                "X": 98,
+                                "Y": 144,
+                                "Width": 44,
+                                "Height": 32
+                            },
+                            "DrawPosition": "66, 83",
                             "DrawInBackground": false
-						},
-						{
+                        },
+                        {
                             "Id": "UltCB_Default_AnimalDoor",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 2,
-                              "Y": 146,
-                              "Width": 44,
-                              "Height": 28
-                              },
-							"DrawPosition": "66, 115",
-							"DrawInBackground": false,
-							"SortTileOffset": 0.02,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                                "X": 2,
+                                "Y": 146,
+                                "Width": 44,
+                                "Height": 28
+                            },
+                            "DrawPosition": "66, 115",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
+                            "AnimalDoorOffset": {
                                 "X": 0,
                                 "Y": -24
                             }
                         },
                         {
                             "Id": "UltCB_Default_AnimalDoor_Open",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 50,
-                              "Y": 146,
-                              "Width": 44,
-                              "Height": 28
-                              },
-							"DrawPosition": "66, 115",
+                                "X": 50,
+                                "Y": 146,
+                                "Width": 44,
+                                "Height": 28
+                            },
+                            "DrawPosition": "66, 115",
                             "DrawInBackground": false,
-							"SortTileOffset": 1.0,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
-							  "X": 0,
-							  "Y": 0
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
                             }
-						}
+                        }
                     ],
                     "IndoorMap": "ultimate_Clean_UltimateBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
@@ -130,7 +129,7 @@
                     "ValidOccupantTypes": [
                         "Barn"
                     ],
-					"AllowAnimalPregnancy": true,
+                    "AllowAnimalPregnancy": true,
                     "IndoorItems": [],
                     "IndoorItemMoves": [],
                     "CustomFields": null
@@ -145,7 +144,6 @@
             },
             "Entries": {
                 "{{ModId}}_UltimateCoop": {
-                    "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
@@ -156,8 +154,8 @@
                         "X": 9,
                         "Y": 4
                     },
-					"FadeWhenBehind": true,
-					"SourceRect": {
+                    "FadeWhenBehind": true,
+                    "SourceRect": {
                         "X": 0,
                         "Y": 0,
                         "Width": 144,
@@ -165,12 +163,12 @@
                     },
                     "DrawOffset": "0, 0",
                     "SortTileOffset": "2.5",
-					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-					"AdditionalPlacementTiles": null,
+                    "CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+                    "AdditionalPlacementTiles": null,
                     "BuildingType": null,
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-            		"BuildDays": 3,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+                    "BuildDays": 3,
                     "BuildCost": 400000,
                     "BuildMaterials": [
                         {
@@ -187,38 +185,38 @@
                         }
                     ],
                     "BuildMenuDrawOffset": {
-                		"X": 0,
-                		"Y": 0
-					},
-            		"HumanDoor": {
-                		"X": 7,
-                		"Y": 2
-		    		},
-            		"AnimalDoor": {
-                		"X": 2,
-                		"Y": 3,
-                		"Width": 2,
-                		"Height": 1
-            		},
-					"AnimalDoorOpenDuration": 0.3125,
-					"AnimalDoorOpenSound": "doorCreak",
-					"AnimalDoorCloseDuration": 0.3125,
-					"AnimalDoorCloseSound": "doorCreakReverse",
-					"NonInstancedIndoorLocation": null,
-					"DrawLayers": [
-					    {
+                        "X": 0,
+                        "Y": 0
+                    },
+                    "HumanDoor": {
+                        "X": 7,
+                        "Y": 2
+                    },
+                    "AnimalDoor": {
+                        "X": 2,
+                        "Y": 3,
+                        "Width": 2,
+                        "Height": 1
+                    },
+                    "AnimalDoorOpenDuration": 0.3125,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.3125,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
                             "Id": "UltCB_Default_Overlay",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              	"X": 90,
-                              	"Y": 146,
-                              	"Width": 40,    
-                              	"Height": 12
+                                "X": 90,
+                                "Y": 146,
+                                "Width": 40,
+                                "Height": 12
                             },
-							"DrawPosition": "28, 116",
+                            "DrawPosition": "28, 116",
                             "DrawInBackground": false
-						},
-					    {
+                        },
+                        {
                             "Id": "UltCB_Default_AnimalDoor",
                             "Texture": null,
                             "SourceRect": {
@@ -229,37 +227,37 @@
                             },
                             "DrawPosition": "28, 127",
                             "DrawInBackground": false,
-						    "SortTileOffset": 0.02,
-						    "OnlyDrawIfChestHasContents": null,
-						    "FrameDuration": 90,
-						    "FrameCount": 1,
-						    "FramesPerRow": -1,
-						    "AnimalDoorOffset": {
-							    "X": 0,
-							    "Y": -12
-                            }
-					    },
-					    {
-                            "Id": "UltCB_Default_AnimalDoor_Open",
-							"Texture": null,
-                            "SourceRect": {
-                            	"X": 48,
-                            	"Y": 144,
-                            	"Width": 40,
-                            	"Height": 16
-                            },
-							"DrawPosition": "28, 127",
-                            "DrawInBackground": false,
-							"SortTileOffset": 1.0,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
-								"X": 0,
-								"Y": 0
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -12
                             }
-						}
+                        },
+                        {
+                            "Id": "UltCB_Default_AnimalDoor_Open",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 48,
+                                "Y": 144,
+                                "Width": 40,
+                                "Height": 16
+                            },
+                            "DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
+                            }
+                        }
                     ],
                     "IndoorMap": "ultimate_Clean_UltimateCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
@@ -281,7 +279,6 @@
             },
             "Entries": {
                 "{{ModId}}_UltimateBarn": {
-                    "ID": "{{i18n:building.ultimate-barn.name}}",
                     "Name": "{{i18n:building.ultimate-barn.name}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
@@ -303,9 +300,9 @@
                     "CollisionMap": null,
                     "AdditionalPlacementTiles": null,
                     "BuildingType": null,
-					"FadeWhenBehind": true,
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+                    "FadeWhenBehind": true,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
                     "BuildDays": 3,
                     "BuildCost": 500000,
                     "BuildMaterials": [
@@ -336,66 +333,66 @@
                         "Width": 3,
                         "Height": 1
                     },
-					"AnimalDoorOpenDuration": 0.75,
+                    "AnimalDoorOpenDuration": 0.75,
                     "AnimalDoorOpenSound": "doorCreak",
                     "AnimalDoorCloseDuration": 0.6,
                     "AnimalDoorCloseSound": "doorCreakReverse",
-					"NonInstancedIndoorLocation": null,
-					"DrawLayers": [
-					    {
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
                             "Id": "UltCB_Default_Overlay",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 98,
-                              "Y": 144,
-                              "Width": 44,
-                              "Height": 32
-                              },
-							"DrawPosition": "66, 83",
+                                "X": 98,
+                                "Y": 144,
+                                "Width": 44,
+                                "Height": 32
+                            },
+                            "DrawPosition": "66, 83",
                             "DrawInBackground": false
-						},
-						{
+                        },
+                        {
                             "Id": "UltCB_Default_AnimalDoor",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 2,
-                              "Y": 146,
-                              "Width": 44,
-                              "Height": 28
-                              },
-							"DrawPosition": "66, 115",
-							"DrawInBackground": false,
-							"SortTileOffset": 0.02,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                                "X": 2,
+                                "Y": 146,
+                                "Width": 44,
+                                "Height": 28
+                            },
+                            "DrawPosition": "66, 115",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
+                            "AnimalDoorOffset": {
                                 "X": 0,
                                 "Y": -24
                             }
                         },
                         {
                             "Id": "UltCB_Default_AnimalDoor_Open",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              "X": 50,
-                              "Y": 146,
-                              "Width": 44,
-                              "Height": 28
-                              },
-							"DrawPosition": "66, 115",
+                                "X": 50,
+                                "Y": 146,
+                                "Width": 44,
+                                "Height": 28
+                            },
+                            "DrawPosition": "66, 115",
                             "DrawInBackground": false,
-							"SortTileOffset": 1.0,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
-							  "X": 0,
-							  "Y": 0
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
                             }
-						}
+                        }
                     ],
                     "IndoorMap": "ultimate_Cozy_UltimateBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
@@ -403,7 +400,7 @@
                     "ValidOccupantTypes": [
                         "Barn"
                     ],
-					"AllowAnimalPregnancy": true,
+                    "AllowAnimalPregnancy": true,
                     "IndoorItems": [],
                     "IndoorItemMoves": [],
                     "CustomFields": null
@@ -418,7 +415,6 @@
             },
             "Entries": {
                 "{{ModId}}_UltimateCoop": {
-                    "ID": "{{i18n:building.ultimate-coop.name}}",
                     "Name": "{{i18n:building.ultimate-coop.name}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
@@ -429,8 +425,8 @@
                         "X": 9,
                         "Y": 4
                     },
-					"FadeWhenBehind": true,
-					"SourceRect": {
+                    "FadeWhenBehind": true,
+                    "SourceRect": {
                         "X": 0,
                         "Y": 0,
                         "Width": 144,
@@ -438,12 +434,12 @@
                     },
                     "DrawOffset": "0, 0",
                     "SortTileOffset": "2.5",
-					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-					"AdditionalPlacementTiles": null,
+                    "CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+                    "AdditionalPlacementTiles": null,
                     "BuildingType": null,
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-            		"BuildDays": 3,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+                    "BuildDays": 3,
                     "BuildCost": 400000,
                     "BuildMaterials": [
                         {
@@ -460,38 +456,38 @@
                         }
                     ],
                     "BuildMenuDrawOffset": {
-                		"X": 0,
-                		"Y": 0
-					},
-            		"HumanDoor": {
-                		"X": 7,
-                		"Y": 2
-		    		},
-            		"AnimalDoor": {
-                		"X": 2,
-                		"Y": 3,
-                		"Width": 2,
-                		"Height": 1
-            		},
-					"AnimalDoorOpenDuration": 0.3125,
-					"AnimalDoorOpenSound": "doorCreak",
-					"AnimalDoorCloseDuration": 0.3125,
-					"AnimalDoorCloseSound": "doorCreakReverse",
-					"NonInstancedIndoorLocation": null,
-					"DrawLayers": [
-					    {
+                        "X": 0,
+                        "Y": 0
+                    },
+                    "HumanDoor": {
+                        "X": 7,
+                        "Y": 2
+                    },
+                    "AnimalDoor": {
+                        "X": 2,
+                        "Y": 3,
+                        "Width": 2,
+                        "Height": 1
+                    },
+                    "AnimalDoorOpenDuration": 0.3125,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.3125,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
                             "Id": "UltCB_Default_Overlay",
-							"Texture": null,
+                            "Texture": null,
                             "SourceRect": {
-                              	"X": 90,
-                              	"Y": 146,
-                              	"Width": 40,    
-                              	"Height": 12
+                                "X": 90,
+                                "Y": 146,
+                                "Width": 40,
+                                "Height": 12
                             },
-							"DrawPosition": "28, 116",
+                            "DrawPosition": "28, 116",
                             "DrawInBackground": false
-						},
-					    {
+                        },
+                        {
                             "Id": "UltCB_Default_AnimalDoor",
                             "Texture": null,
                             "SourceRect": {
@@ -502,37 +498,37 @@
                             },
                             "DrawPosition": "28, 127",
                             "DrawInBackground": false,
-						    "SortTileOffset": 0.02,
-						    "OnlyDrawIfChestHasContents": null,
-						    "FrameDuration": 90,
-						    "FrameCount": 1,
-						    "FramesPerRow": -1,
-						    "AnimalDoorOffset": {
-							    "X": 0,
-							    "Y": -12
-                            }
-					    },
-					    {
-                            "Id": "UltCB_Default_AnimalDoor_Open",
-							"Texture": null,
-                            "SourceRect": {
-                            	"X": 48,
-                            	"Y": 144,
-                            	"Width": 40,
-                            	"Height": 16
-                            },
-							"DrawPosition": "28, 127",
-                            "DrawInBackground": false,
-							"SortTileOffset": 1.0,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
                             "FrameCount": 1,
                             "FramesPerRow": -1,
-							"AnimalDoorOffset": {
-								"X": 0,
-								"Y": 0
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -12
                             }
-						}
+                        },
+                        {
+                            "Id": "UltCB_Default_AnimalDoor_Open",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 48,
+                                "Y": 144,
+                                "Width": 40,
+                                "Height": 16
+                            },
+                            "DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
+                            }
+                        }
                     ],
                     "IndoorMap": "ultimate_Cozy_UltimateCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",

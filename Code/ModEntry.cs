@@ -376,31 +376,6 @@ namespace UltimateCoopAndBarn
             return _cachedCoopFloorConfig ?? "Clean";
         }
 
-        [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
-        public static class BuildingInitializeIndoorPrefix
-        {
-            public static void Prefix(Building __instance)
-            {
-                if (__instance.buildingType.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
-                    return;
-
-                var interior = __instance.indoors.Value;
-                if (interior == null) return;
-
-                if (string.IsNullOrEmpty(interior.mapPath.Value) || interior.mapPath.Value.Contains("{{"))
-                {
-                    interior.mapPath.Value = __instance.buildingType.Value switch
-                    {
-                        UltimateBarn => $"Maps/ultimate_{modInstance!.GetBarnFloorConfig()}_UltimateBarn",
-                        SuperDenseBarn => $"Maps/ultimate_{modInstance!.GetBarnFloorConfig()}_SuperDenseBarn",
-                        UltimateCoop => $"Maps/ultimate_{modInstance!.GetCoopFloorConfig()}_UltimateCoop",
-                        SuperDenseCoop => $"Maps/ultimate_{modInstance!.GetCoopFloorConfig()}_SuperDenseCoop",
-                        _ => interior.mapPath.Value
-                    };
-                }
-            }
-        }
-
         private void OnDayStarted(object? sender, DayStartedEventArgs e)
         {
             UpdateOvercrowdingState();

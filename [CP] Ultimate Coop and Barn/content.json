@@ -146,6 +146,14 @@
         },
         {
             "Action": "Include",
+            "FromFile": "data/moreUpgrades.json",
+            "When": {
+                "bobkalonger.UltCB_code/UltimateMode": "More",
+                "HasMod": "bobkalonger.UltCB_code"
+            }
+        },
+        {
+            "Action": "Include",
             "FromFile": "data/upgradeVanilla.json",
             "When": {
                 "bobkalonger.UltCB_code/UltimateMode": "Vanilla",

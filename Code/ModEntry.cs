@@ -61,10 +61,44 @@ namespace UltimateCoopAndBarn
             helper.Events.Player.Warped += PlayerOnWarped;
             helper.Events.Display.MenuChanged += OnMenuChanged;
             helper.Events.Content.AssetRequested += OnAssetRequested;
+            helper.ConsoleCommands.Add("ucbFixCapacity", "Fixes animal limit on UCB buildings if a previous mod set the value too small.", FixAnimalCapacity);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        private void FixAnimalCapacity(string command, string[] args)
+        {
+            if (!Context.IsWorldReady)
+            {
+                Monitor.Log("Load a save first before running this command.", LogLevel.Warn);
+                return;
+            }
+
+            int fixedCount = 0;
+
+            Utility.ForEachBuilding(building =>
+            {
+                if (building.indoors.Value is not AnimalHouse animalHouse)
+                    return true;
+
+                if (!building.buildingType.Value.StartsWith("bobkalonger.UltimateCoopAndBarnCP_"))
+                    return true;
+
+                int expected = _overcrowdingActive ? 64 : 48;
+
+                if (animalHouse.animalLimit.Value != expected)
+                {
+                    animalHouse.animalLimit.Value = expected;
+                    Monitor.Log($"Fixed capacity on {building.buildingType.Value}, set to {expected}.", LogLevel.Info);
+                    fixedCount++;
+                }
+
+                return true;
+            });
+
+            Monitor.Log(fixedCount > 0 ? $"Fixed {fixedCount} building(s). Make sure you save!" : "No buildings needed fixing.", LogLevel.Info);
         }
 
         ///<inheritdoc cref="IGameLoopEvents.GameLaunched"/>
@@ -161,6 +195,7 @@ namespace UltimateCoopAndBarn
             if (hasJMCB && hasUARC) return "Both";
             if (hasJMCB) return "Mega";
             if (hasUARC) return "Giant";
+            if (Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades")) return "More";
             return "Vanilla";
         }
 

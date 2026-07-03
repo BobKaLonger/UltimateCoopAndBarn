@@ -14,7 +14,7 @@
             "Section": "Indoor Appearance"
         },
         "Ultimate Building Upgrade": {
-            "AllowValues": "Auto, Giga, Mega",
+            "AllowValues": "Auto, Giga, Mega, More Upgrades, Vanilla",
             "Description": "Choose which buildings to upgrade. For SVE or Vanilla, select Auto.",
             "Default": "Auto",
             "Section": "Upgrade Path"
@@ -148,7 +148,7 @@
             "Action": "Include",
             "FromFile": "data/moreUpgrades.json",
             "When": {
-                "bobkalonger.UltCB_code/UltimateMode": "More",
+                "bobkalonger.UltCB_code/UltimateMode": "More Upgrades",
                 "HasMod": "bobkalonger.UltCB_code"
             }
         },

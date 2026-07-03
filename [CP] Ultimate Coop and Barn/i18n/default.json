@@ -14,6 +14,8 @@
     "config.ultimate-building-upgrade.values.auto": "Auto",
     "config.ultimate-building-upgrade.values.giga": "Giga",
     "config.ultimate-building-upgrade.values.mega": "Mega",
+    "config.ultimate-building-upgrade.values.more-upgrades": "More Upgrades",
+    "config.ultimate-building-upgrade.values.vanilla": "Vanilla",
     "config.section.indoor-appearance.name": "Indoor Appearance",
     "config.section.upgrade-path.name": "Upgrade Path"
 }

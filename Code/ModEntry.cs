@@ -150,6 +150,8 @@ namespace UltimateCoopAndBarn
                     "SVE" => Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"),
                     "Giga" => Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"),
                     "Mega" => Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn") || Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"),
+                    "More Upgrades" => Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades"),
+                    "Vanilla" => true,
                     _ => false
                 };
 
@@ -195,7 +197,7 @@ namespace UltimateCoopAndBarn
             if (hasJMCB && hasUARC) return "Both";
             if (hasJMCB) return "Mega";
             if (hasUARC) return "Giant";
-            if (Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades")) return "More";
+            if (Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades")) return "More Upgrades";
             return "Vanilla";
         }
 

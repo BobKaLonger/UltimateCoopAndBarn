@@ -9,7 +9,7 @@
             "Entries": {
                 "{{ModId}}_SuperDenseBarn": {
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Texture": "Amichwan.More.upgrades/PremiumBarn",
+                    "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
                     "MagicalConstruction": false,
@@ -175,7 +175,7 @@
             "Entries": {
                 "{{ModId}}_SuperDenseCoop": {
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Texture": "Amichwan.More.upgrades/PremiumCoop",
+                    "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,
                     "MagicalConstruction": false,
@@ -299,7 +299,7 @@
             "Entries": {
                 "{{ModId}}_SuperDenseBarn": {
                     "Name": "{{i18n:building.ultimate-barn.name}}",
-                    "Texture": "Amichwan.More.upgrades/PremiumBarn",
+                    "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
                     "MagicalConstruction": false,
@@ -465,7 +465,7 @@
             "Entries": {
                 "{{ModId}}_SuperDenseCoop": {
                     "Name": "{{i18n:building.ultimate-coop.name}}",
-                    "Texture": "Amichwan.More.upgrades/PremiumCoop",
+                    "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,
                     "MagicalConstruction": false,

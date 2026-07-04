@@ -15,7 +15,7 @@
         },
         "Ultimate Building Upgrade": {
             "AllowValues": "Auto, Giga, Mega, More Upgrades, Vanilla",
-            "Description": "Choose which buildings to upgrade. For SVE or Vanilla, select Auto.",
+            "Description": "Changes take effect after reloading the save file.",
             "Default": "Auto",
             "Section": "Upgrade Path"
         }

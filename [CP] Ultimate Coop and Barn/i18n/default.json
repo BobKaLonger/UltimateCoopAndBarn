@@ -10,7 +10,7 @@
     "config.coop-floor.values.clean": "Clean",
     "config.coop-floor.values.cozy": "Cozy",
     "config.ultimate-building-upgrade.name": "Ultimate Building Upgrade",
-    "config.ultimate-building-upgrade.description": "Choose which buildings to upgrade. For SVE or Vanilla, select Auto.",
+    "config.ultimate-building-upgrade.description": "Changes take effect after reloading the save file.",
     "config.ultimate-building-upgrade.values.auto": "Auto",
     "config.ultimate-building-upgrade.values.giga": "Giga",
     "config.ultimate-building-upgrade.values.mega": "Mega",

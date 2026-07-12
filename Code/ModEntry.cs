@@ -152,6 +152,7 @@ namespace UltimateCoopAndBarn
                     "Mega" => Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn") || Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"),
                     "More Upgrades" => Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades"),
                     "Vanilla" => true,
+                    "None" => true,
                     _ => false
                 };
 

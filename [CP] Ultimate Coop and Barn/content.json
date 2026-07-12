@@ -14,9 +14,15 @@
             "Section": "Indoor Appearance"
         },
         "Ultimate Building Upgrade": {
-            "AllowValues": "Auto, Giga, Mega, More Upgrades, Vanilla",
+            "AllowValues": "Auto, Mega, Giga, More Upgrades, Vanilla, None",
             "Description": "Changes take effect after reloading the save file.",
-            "Default": "Auto",
+            "Default": "Giga",
+            "Section": "Upgrade Path"
+        },
+        "SVE Integration": {
+            "AllowValues": "true, false",
+            "Description": "Toggles compatibility with SVE buildings.",
+            "Default": "true",
             "Section": "Upgrade Path"
         }
     },
@@ -100,8 +106,8 @@
             "Action": "Include",
             "FromFile": "data/upgradeSVE.json",
             "When": {
-                "bobkalonger.UltCB_code/UltimateMode": "SVE",
-                "HasMod": "bobkalonger.UltCB_code"
+                "SVE Integration": "true",
+                "HasMod": "FlashShifter.StardewValleyExpandedCP"
             }
         },
         {

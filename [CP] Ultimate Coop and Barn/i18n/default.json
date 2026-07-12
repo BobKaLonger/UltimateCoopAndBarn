@@ -16,6 +16,9 @@
     "config.ultimate-building-upgrade.values.mega": "Mega",
     "config.ultimate-building-upgrade.values.more-upgrades": "More Upgrades",
     "config.ultimate-building-upgrade.values.vanilla": "Vanilla",
+    "config.ultimate-building-upgrade.values.none": "None",
+    "config.sve-integration.name": "SVE Integration",
+    "config.sve-integration.description": "Toggles compatibility with SVE buildings.",
     "config.section.indoor-appearance.name": "Indoor Appearance",
     "config.section.upgrade-path.name": "Upgrade Path"
 }

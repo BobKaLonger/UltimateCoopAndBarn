@@ -1017,18 +1017,18 @@ namespace UltimateCoopAndBarn
             {
                 if (__result) return;
 
-                string? toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == PremiumCoopSVE)
                 {
-                    toCheck = UltimateCoop;
+                    if (location.getNumberBuildingsConstructed(UltimateCoop) > 0 ||
+                        location.getNumberBuildingsConstructed(SuperDenseCoop) > 0)
+                        __result = true;
                 }
                 else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == PremiumBarnSVE)
                 {
-                    toCheck = UltimateBarn;
+                    if (location.getNumberBuildingsConstructed(UltimateBarn) > 0 ||
+                        location.getNumberBuildingsConstructed(SuperDenseBarn) > 0)
+                        __result = true;
                 }
-
-                if (toCheck != null && Game1.locations.Any(loc => loc.getNumberBuildingsConstructed(toCheck) > 0))
-                    __result = true;
             }
         }
 

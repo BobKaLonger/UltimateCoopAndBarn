@@ -51,9 +51,9 @@ namespace UltimateCoopAndBarn
             helper.Events.GameLoop.ReturnedToTitle += (s, e) =>
             {
                 _cachedUpgradeConfig = null;
+                _cachedSVEIntegration = null;
                 _cachedBarnFloorConfig = null;
                 _cachedCoopFloorConfig = null;
-                _lastMode = null;
             };
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
@@ -111,95 +111,70 @@ namespace UltimateCoopAndBarn
                 return;
             }
 
-            cp.RegisterToken(ModManifest, "UltimateMode", GetUltimateMode);
+            cp.RegisterToken(ModManifest, "UltimateMode", () => new[] { ComputeUltimateMode() });
+            cp.RegisterToken(ModManifest, "SVEIntegration", GetSVEIntegration);
             cp.RegisterToken(ModManifest, "OvercrowdingActive", () => new[] { _overcrowdingActive ? "true" : "false" });
         }
 
-        private string? _lastMode;
         private string? _cachedUpgradeConfig = null;
+        private string? _cachedSVEIntegration = null;
+
+        private void CacheUserConfig()
+        {
+            if (_cachedUpgradeConfig != null && _cachedSVEIntegration != null) return;
+
+            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
+            if (config == null) return;
+
+            if (_cachedUpgradeConfig == null && config.TryGetValue("Ultimate Building Upgrade", out string? upgrade))
+                _cachedUpgradeConfig = upgrade;
+
+            if (_cachedSVEIntegration == null && config.TryGetValue("SVE Integration", out string? sve))
+            {
+                bool sveEnabled = string.Equals(sve, "true", StringComparison.OrdinalIgnoreCase);
+                if (!sveEnabled)
+                    _cachedSVEIntegration = "false";
+                else if (Helper.ModRegistry.IsLoaded("JennaJuffuffles.BiggerOnTheInside.CP"))
+                {
+                    _cachedSVEIntegration = "hasBOTI";
+                    _cachedUpgradeConfig = "None";
+                    Monitor.Log("Bigger on the Inside detected with SVE, overriding Ultimate Building Upgrade to None.", LogLevel.Info);
+                }
+                else
+                    _cachedSVEIntegration = "true";
+            }
+        }
 
         private string GetUpgradeConfig()
         {
-            if (_cachedUpgradeConfig != null) return _cachedUpgradeConfig;
-            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
-            if (config != null && config.TryGetValue("Ultimate Building Upgrade", out string? value))
-                _cachedUpgradeConfig = value;
-            return _cachedUpgradeConfig ?? "Auto";
+            CacheUserConfig();
+            return _cachedUpgradeConfig ?? "Vanilla";
         }
 
-        private IEnumerable<string> GetUltimateMode()
+        private IEnumerable<string> GetSVEIntegration()
         {
-            return new[] { ComputeUltimateMode() };
+            CacheUserConfig();
+            return new[] { _cachedSVEIntegration ?? "false" };
         }
 
         private string ComputeUltimateMode()
         {
             string upgradeChoice = GetUpgradeConfig();
 
-            bool hasJMCB = Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
-            bool hasUARC = Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
-
-            string result;
-
-            if (upgradeChoice != "Auto")
+            if (upgradeChoice == "Mega")
             {
-                string manual = upgradeChoice;
+                bool hasJMCB = Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
+                bool hasUARC = Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
 
-                bool validSelection = manual switch
-                {
-                    "SVE" => Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"),
-                    "Giga" => Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"),
-                    "Mega" => Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn") || Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"),
-                    "More Upgrades" => Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades"),
-                    "Vanilla" => true,
-                    "None" => true,
-                    _ => false
-                };
+                if (hasJMCB && hasUARC) return "Both";
+                if (hasJMCB) return "Mega";
+                if (hasUARC) return "Giant";
 
-                if (validSelection)
-                {
-                    if (manual == "Mega")
-                    {
-                        if (hasJMCB && hasUARC) return "Both";
-                        if (hasJMCB) return "Mega";
-                        return "Giant";
-                    }
-                    else result = manual;
-                }
-                else
-                {
-                    Monitor.Log($"Config set to '{manual}' but that mod isn't installed, falling back on automatic behavior.", LogLevel.Warn);
-                    result = ComputeAuto(hasJMCB, hasUARC);
-                }
-            }
-            else
-            {
-                result = ComputeAuto(hasJMCB, hasUARC);
+                Monitor.Log("Config set to 'Mega' but neither Jen's Mega Coop and Barn nor Resource Chickens is installed.", LogLevel.Warn);
+                return "Vanilla";
             }
 
-            if (result != _lastMode)
-            {
-                _lastMode = result;
-                if (Context.IsWorldReady)
-                    Helper.GameContent.InvalidateCache("Data/Buildings");
-            }
-
-            return result;
-        }
-
-        private string ComputeAuto(bool hasJMCB, bool hasUARC)
-        {
-            if (Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
-            {
-                if (Helper.ModRegistry.IsLoaded("JennaJuffuffles.BiggerOnTheInside.CP")) return "BOTI";
-                return "SVE";
-            }
-            if (Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn")) return "Giga";
-            if (hasJMCB && hasUARC) return "Both";
-            if (hasJMCB) return "Mega";
-            if (hasUARC) return "Giant";
-            if (Helper.ModRegistry.IsLoaded("Amichwan.More.upgrades")) return "More Upgrades";
-            return "Vanilla";
+            return upgradeChoice;
         }
 
         private void PlayerOnWarped(object? sender, WarpedEventArgs e)

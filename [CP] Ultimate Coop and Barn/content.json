@@ -14,7 +14,7 @@
             "Section": "Indoor Appearance"
         },
         "Ultimate Building Upgrade": {
-            "AllowValues": "Auto, Mega, Giga, More Upgrades, Vanilla, None",
+            "AllowValues": "Mega, Giga, More Upgrades, Vanilla, None",
             "Description": "Changes take effect after reloading the save file.",
             "Default": "Giga",
             "Section": "Upgrade Path"
@@ -106,7 +106,7 @@
             "Action": "Include",
             "FromFile": "data/upgradeSVE.json",
             "When": {
-                "SVE Integration": "true",
+                "bobkalonger.UltCB_code/SVEIntegration": "true",
                 "HasMod": "FlashShifter.StardewValleyExpandedCP"
             }
         },
@@ -114,7 +114,7 @@
             "Action": "Include",
             "FromFile": "data/upgradeBOTI.json",
             "When": {
-                "bobkalonger.UltCB_code/UltimateMode": "BOTI",
+                "bobkalonger.UltCB_code/SVEIntegration": "hasBOTI",
                 "HasMod": "bobkalonger.UltCB_code"
             }
         },
@@ -180,6 +180,35 @@
                     "UnlockCondition": "ANY \"BUILDINGS_CONSTRUCTED all FlashShifter.StardewValleyExpandedCP_PremiumCoop 1\" \"BUILDINGS_CONSTRUCTED all bobkalonger.UltimateCoopAndBarnCP_UltimateCoop 1\""
                 }
             }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "When": {
+                "HasMod": "FlashShifter.StardewValleyExpandedCP"
+            },
+            "TextOperations": [
+                {
+                    "Operation": "Append",
+                    "Target": [
+                        "Fields",
+                        "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+                        "BuildCondition"
+                    ],
+                    "Value": " \"BUILDINGS_CONSTRUCTED All Amichwan.More.upgrades_PremiumBarn\" \"BUILDINGS_CONSTRUCTED All jenf1.megacoopbarn_MegaBarn\" \"BUILDINGS_CONSTRUCTED All bobkalonger.UltimateCoopAndBarnCP_UltimateBarn\" \"BUILDINGS_CONSTRUCTED All bobkalonger.UltimateCoopAndBarnCP_SuperDenseBarn\"",
+                    "Delimiter": ""
+                },
+                {
+                    "Operation": "Append",
+                    "Target": [
+                        "Fields",
+                        "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+                        "BuildCondition"
+                    ],
+                    "Value": " \"BUILDINGS_CONSTRUCTED All Amichwan.More.upgrades_PremiumCoop\" \"BUILDINGS_CONSTRUCTED All jenf1.megacoopbarn_MegaCoop\" \"BUILDINGS_CONSTRUCTED All UncleArya.ResourceChickens.GiantCoop\" \"BUILDINGS_CONSTRUCTED All bobkalonger.UltimateCoopAndBarnCP_UltimateCoop\" \"BUILDINGS_CONSTRUCTED All bobkalonger.UltimateCoopAndBarnCP_SuperDenseCoop\"",
+                    "Delimiter": ""
+                }
+            ]
         }
     ]
 }

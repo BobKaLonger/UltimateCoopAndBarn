@@ -52,8 +52,6 @@ namespace UltimateCoopAndBarn
             {
                 _cachedUpgradeConfig = null;
                 _cachedSVEIntegration = null;
-                _cachedBarnFloorConfig = null;
-                _cachedCoopFloorConfig = null;
             };
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
@@ -367,26 +365,6 @@ namespace UltimateCoopAndBarn
                 }
                 return true;
             });
-        }
-
-        private string? _cachedBarnFloorConfig = null;
-        private string GetBarnFloorConfig()
-        {
-            if (_cachedBarnFloorConfig != null) return _cachedBarnFloorConfig;
-            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
-            if (config != null && config.TryGetValue("Barn Floor", out string? value))
-                _cachedBarnFloorConfig = value;
-            return _cachedBarnFloorConfig ?? "Clean";
-        }
-
-        private string? _cachedCoopFloorConfig = null;
-        private string GetCoopFloorConfig()
-        {
-            if (_cachedCoopFloorConfig != null) return _cachedCoopFloorConfig;
-            var config = cpPack?.ReadJsonFile<Dictionary<string, string>>("config.json");
-            if (config != null && config.TryGetValue("Coop Floor", out string? value))
-                _cachedCoopFloorConfig = value;
-            return _cachedCoopFloorConfig ?? "Clean";
         }
 
         private void OnDayStarted(object? sender, DayStartedEventArgs e)

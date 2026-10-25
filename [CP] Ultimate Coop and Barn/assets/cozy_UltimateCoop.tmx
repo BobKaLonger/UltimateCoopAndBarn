@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="44" height="46" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="308">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="44" height="46" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="308">
  <properties>
   <property name="AmbientLight" value="110 110 110"/>
   <property name="AutoFeed" value="T"/>
@@ -90,7 +90,7 @@
  </layer>
  <layer id="9" name="AlwaysFront" width="44" height="46">
   <data encoding="base64" compression="zlib">
-   eJzt1EEKgCAUhOG3iAgNw0UH6Qbd/xrVPTKova8ylf4PZhFUjpsRAQDUrAtpcpdQaEP6F/5z3Nsq3vf23vMoMh9R1rvNhLOexJ+ppe+Vr/oCb/rr/mqxv2X2ZX9RM/Y3DvtbZl/2FzVjf+Owv2X2ZX+R0+JE1pDNlXG2ifiuGZJVUp895akBJLUDws402Q==
+   eJzt1DsOgCAURNFXWBgkGAoX4g5cmntV9yEk2vP8AfGeZAoTlaEZEQBAzdqQJncJBSsy2wf+E+/dKd733bXnQWSKUda7zISz7sQfqaXvma/6Ak/66/5qsb9l9mV/UTP2Nw37W2Zf9hc1Y3/TsL9l9mV/kdPiRNaQzZVxtkn4rulfq6Q+e8xTA3jVDiSqNvE=
   </data>
  </layer>
  <layer id="11" name="AlwaysFront1" width="44" height="46">
@@ -103,7 +103,7 @@
    eJzt2KENACAMRUEWYEP2nwOBxUAQfLhLKqioeopSAN7T6pgbdrBj1tbK+9QN2KFfkumXZPolmX5Jpl+S6fcPr/5Z6hdI1QGCgCDR
   </data>
  </layer>
- <objectgroup id="2" name="Back">
+ <objectgroup id="2" name="Back" visible="0">
   <object id="59" name="TileData" x="304" y="224" width="16" height="16">
    <properties>
     <property name="WaterSource" value="T"/>

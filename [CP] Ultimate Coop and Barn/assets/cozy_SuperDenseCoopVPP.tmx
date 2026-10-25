@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="54" height="46" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="358">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="54" height="46" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="358">
  <properties>
   <property name="AmbientLight" value="110 110 110"/>
   <property name="AutoFeed" value="T"/>
@@ -90,7 +90,7 @@
  </layer>
  <layer id="9" name="AlwaysFront" width="54" height="46">
   <data encoding="base64" compression="zlib">
-   eJzt1cEJgDAQRNE9iIhKJAcLsQP7b0PtwwgRRBREsqzE/2AOHoKzpxEBAABHVUhhXUJBGdJal4h8k+67Fxm3JCv3Qh3+nzo+Jre79ljeBeSK/dLHfrFflncBuWK/9LFf7JflXUCu2C997Bf7ZXkX8AWTE5lDFmfd5N5Vx/rBu6JTq5TMueNgUwP4tRWLvUDG
+   eJzt1TEKgDAQRNEtUogGJYUH8QYezbuq9zCCgoiCSJaV+B9MYRGcrUYEAAAcFTHOuoQCLzJ46xKbUKX7bkX6NcnKvVDG/6dO2JLbXXss7wJyxX7pY7/YL8u7gFyxX/rYL/bL8i4gV+yXPvaL/bK8C/iCsRaZYubausm9q47lg3euUauUzLljZ1MD+LUF8eJC3g==
   </data>
  </layer>
  <layer id="11" name="AlwaysFront1" width="54" height="46">

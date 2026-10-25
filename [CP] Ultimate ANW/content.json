@@ -1,0 +1,186 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Mods/GZhynko.AnimalsNeedWater/TroughPlacements",
+      "Entries": {
+
+        "bobkalonger.UltimateCoopAndBarnCP_SuperDenseBarn": {
+          "TroughTiles": [
+            { "TileX": 19, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 20, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 42, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 43, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 19, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 20, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 42, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 43, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 19, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 20, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 42, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 43, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 19, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 20, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 42, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 43, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 }
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 20, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 43, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 20, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 43, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_SuperDenseBarnVPP": {
+          "TroughTiles": [
+            { "TileX": 24, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 25, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 47, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 48, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 24, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 25, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 47, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 48, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 24, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 25, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 47, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 48, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 24, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 25, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 47, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 48, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 }
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 25, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 48, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 25, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 48, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_SuperDenseCoop": {
+          "TroughTiles": [
+            { "TileX": 19, "TileY": 14, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 22, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 30, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 38, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 }
+            
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 19, "TileY": 13, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 21, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 29, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 37, "Layer": "Buildings1", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_SuperDenseCoopVPP": {
+          "TroughTiles": [
+            { "TileX": 24, "TileY": 14, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 22, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 30, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 38, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 }
+            
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 24, "TileY": 13, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 21, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 29, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 37, "Layer": "Buildings1", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_UltimateBarn": {
+          "TroughTiles": [
+            { "TileX": 19, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 20, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 42, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 43, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 19, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 20, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 42, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 43, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 19, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 20, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 42, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 43, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 19, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 20, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 42, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 43, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 }
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 20, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 43, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 20, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 43, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_UltimateBarnVPP": {
+          "TroughTiles": [
+            { "TileX": 24, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 25, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 47, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 48, "TileY": 29, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 24, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 25, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 47, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 6, "FullIndex": 8 },
+            { "TileX": 48, "TileY": 39, "Layer": "Buildings", "EmptyIndex": 7, "FullIndex": 9 },
+            { "TileX": 24, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 25, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 47, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 48, "TileY": 28, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 24, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 25, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 },
+            { "TileX": 47, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 1, "FullIndex": 4 },
+            { "TileX": 48, "TileY": 38, "Layer": "Buildings1", "EmptyIndex": 2, "FullIndex": 5 }
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 25, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 48, "TileY": 28, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 25, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1},
+            {"TileX": 48, "TileY": 38, "Layer": "Buildings2", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_UltimateCoop": {
+          "TroughTiles": [
+            { "TileX": 19, "TileY": 14, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 22, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 30, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 19, "TileY": 38, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 }
+            
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 19, "TileY": 13, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 21, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 29, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 19, "TileY": 37, "Layer": "Buildings1", "SystemIndex": 1}
+          ]
+        },
+
+        "bobkalonger.UltimateCoopAndBarnCP_UltimateCoopVPP": {
+          "TroughTiles": [
+            { "TileX": 24, "TileY": 14, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 22, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 30, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 },
+            { "TileX": 24, "TileY": 38, "Layer": "Buildings", "EmptyIndex": 0, "FullIndex": 3 }
+            
+          ],
+          "WateringSystemTiles": [
+            {"TileX": 24, "TileY": 13, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 21, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 29, "Layer": "Buildings1", "SystemIndex": 1},
+            {"TileX": 24, "TileY": 37, "Layer": "Buildings1", "SystemIndex": 1}
+          ]
+        }
+      },
+      "When": {
+        "HasMod": "GZhynko.AnimalsNeedWater"
+      }
+    }
+  ]
+}

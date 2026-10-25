@@ -1,7 +1,7 @@
 {
 	"Name": "Ultimate Coop and Barn",
 	"Author": "bobkalonger",
-	"Version": "1.8.22",
+	"Version": "1.8.23",
 	"Description": "Adds a new upgrade level to coops and barns, increasing the animal limit to 48!",
 	"UniqueID": "bobkalonger.UltimateCoopAndBarnCP",
 	"MinimumApiVersion": "4.4.0",
@@ -66,6 +66,10 @@
 		{
 			"UniqueID": "Amichwan.More.upgrades",
 			"MinimumVersion": "1.1.2",
+			"IsRequired": false
+		},
+		{
+			"UniqueID": "GZhynko.AnimalsNeedWater",
 			"IsRequired": false
 		}
 	]

@@ -1,0 +1,19 @@
+{
+  "Name": "Ultimate ANW Patch",
+  "Author": "bobkalonger",
+  "Version": "1.0.0",
+  "Description": "Adds ANW compatibility to Ultimate Coop and Barn",
+  "UniqueID": "bobkalonger.UltimateANW",
+  "UpdateKeys": [
+    "Nexus:44285@UANW"
+  ],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "GZhynko.AnimalsNeedWater",
+      "IsRequired": false
+    }
+  ]
+}
